@@ -7,62 +7,54 @@
 
 import Foundation
 
-enum Endpoint {
-    case nowPlaying(page: Int)
-    case upcoming(page: Int)
-    case topRated(page: Int)
-    case detail(id: Int)
-}
-
-extension Endpoint {
-    var host: String { "api.themoviedb.org" }
+final class NetworkingManager {
     
-    var path: String {
-        switch self {
-        case .nowPlaying :
-            return "/3/movie/now_playing"
-        case .upcoming :
-            return "/3/movie/upcoming"
-        case .topRated :
-            return "/3/movie/top_rated"
-        case .detail(let id):
-            return "/3/movie/\(id)"
-        }
-    }
+    static let shared = NetworkingManager()
     
-    var queryItems: [String: String]? {
-        switch self {
-        case .nowPlaying(let page):
-            return ["api_key": Constants.apiKey,
-                    "language" : "en-US",
-                    "page": "\(page)"]
-        case .upcoming(let page):
-            return ["api_key": Constants.apiKey,
-                    "language" : "en-US",
-                    "page": "\(page)"]
-        case .topRated(let page):
-            return ["api_key": Constants.apiKey,
-                    "language" : "en-US",
-                    "page": "\(page)"]
-        case .detail:
-            return ["api_key": Constants.apiKey, "append_to_response": "videos,credits,similar"]
+    private init() {}
+    
+    func request<T: Codable>(_ endpoint: Endpoint, type: T.Type?) async throws -> T {
+        guard let url = endpoint.url else { throw NetworkingError.invalidUrl }
+        
+        print(url)
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse,
+              (200...300) ~= response.statusCode else {
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            throw NetworkingError.invalidStatusCode(statusCode: statusCode)
         }
+        
+        let decoder = JSONDecoder()
+        let decodedData = try decoder.decode(T.self, from: data)
+        return decodedData
     }
 }
 
-extension Endpoint {
-    var url: URL? {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = host
-        urlComponents.path = path
-        
-        let requestQueryItems = queryItems?.compactMap { item in
-            URLQueryItem(name: item.key, value: item.value)
+extension NetworkingManager {
+    enum NetworkingError: LocalizedError {
+        case invalidUrl
+        case invalidStatusCode(statusCode: Int)
+        case invalidData
+        case failedToDecode(error: Error)
+        case custom(error: Error)
+    }
+}
+
+extension NetworkingManager.NetworkingError {
+    var errorDescription: String? {
+        switch self {
+        case .invalidUrl:
+            return "URL isn't valid"
+        case .invalidStatusCode:
+            return "Status code falls into the wrong range"
+        case .invalidData:
+            return "Response data is invalid"
+        case .failedToDecode:
+            return "Failed to decode"
+        case .custom(let err):
+            return "Something went wrong \(err.localizedDescription)"
         }
-        
-        urlComponents.queryItems = requestQueryItems
-        
-        return urlComponents.url
     }
 }
