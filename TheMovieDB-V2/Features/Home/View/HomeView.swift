@@ -13,10 +13,22 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                
-                ForEach(vm.nowPlaying) { movie in
-                    Text(movie.title)
+                List {
+                    ForEach(vm.nowPlaying) { movie in
+                        HStack {
+                            AsyncImage(url: movie.posterURL) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 100)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            Text(movie.title)
+                        }
+                    }
                 }
+                .listStyle(.plain)
             }
             .navigationTitle("Movies")
             .task {
