@@ -27,6 +27,7 @@ final class NetworkingManager {
         }
         
         let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         let decodedData = try decoder.decode(T.self, from: data)
         return decodedData
     }
