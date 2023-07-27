@@ -12,32 +12,46 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                List {
-                    ForEach(vm.nowPlaying) { movie in
-                        HStack {
-                            AsyncImage(url: movie.posterURL) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 100, height: 100)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            Text(movie.title)
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 10) {
+                    PosterCarouselView(title: "Movie of the day", movies: vm.nowPlaying)
+                    PosterCarouselView(title: "Recently Added", movies: vm.upcoming)
+                    PosterCarouselView(title: "Top Rated Movie", movies: vm.topRated)
+                }
+                .padding([.top, .bottom])
+                .navigationTitle("Welcome")
+                .task {
+                    if !vm.hasAppeared {
+                        await vm.populateMovies()
+                        vm.hasAppeared = true
+                    }
+                }
+                .overlay {
+                    if vm.isLoading {
+                        ProgressView()
+                    }
+                }
+                .alert(isPresented: $vm.hasError, error: vm.error) {
+                    Button("Retry") {
+                        Task {
+                            await vm.populateMovies()
                         }
                     }
                 }
-                .listStyle(.plain)
-            }
-            .navigationTitle("Movies")
-            .task {
-                await vm.fetchMovies()
-            }
-            .alert(isPresented: $vm.hasError, error: vm.error) {
-                Button("Retry") {
-                    Task {
-                        await vm.fetchMovies()
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            Task {
+                                await vm.populateMovies()
+                            }
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                                .foregroundColor(.orange)
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Image(systemName: "gear")
+                            .foregroundColor(.orange)
                     }
                 }
             }

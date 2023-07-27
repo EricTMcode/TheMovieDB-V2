@@ -11,7 +11,7 @@ struct PosterCard: View {
     let movie: Movie
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ZStack {
                 RectangleView()
                 
@@ -40,6 +40,7 @@ struct PosterCard: View {
                     .font(.caption.bold())
             }
         }
+        .frame(width: 90, height: 150)
     }
 }
 

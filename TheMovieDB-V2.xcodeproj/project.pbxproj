@@ -21,6 +21,8 @@
 		075568992A72954000617D64 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568982A72954000617D64 /* PreviewProvider.swift */; };
 		0755689C2A7296A600617D64 /* PosterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689B2A7296A600617D64 /* PosterCard.swift */; };
 		0755689F2A72970400617D64 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689E2A72970400617D64 /* RectangleView.swift */; };
+		075568A12A72985500617D64 /* PosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A02A72985500617D64 /* PosterCarouselView.swift */; };
+		075568A32A72AA5400617D64 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A22A72AA5400617D64 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		075568982A72954000617D64 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		0755689B2A7296A600617D64 /* PosterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCard.swift; sourceTree = "<group>"; };
 		0755689E2A72970400617D64 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		075568A02A72985500617D64 /* PosterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCarouselView.swift; sourceTree = "<group>"; };
+		075568A22A72AA5400617D64 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			children = (
 				075568842A7141C700617D64 /* Endpoint.swift */,
 				075568862A7141D800617D64 /* NetworkingManager.swift */,
+				075568A22A72AA5400617D64 /* APIService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				0755689B2A7296A600617D64 /* PosterCard.swift */,
+				075568A02A72985500617D64 /* PosterCarouselView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -268,8 +274,10 @@
 				0755689F2A72970400617D64 /* RectangleView.swift in Sources */,
 				075568712A71392500617D64 /* ContentView.swift in Sources */,
 				0755686F2A71392500617D64 /* TheMovieDB_V2App.swift in Sources */,
+				075568A12A72985500617D64 /* PosterCarouselView.swift in Sources */,
 				075568922A71471000617D64 /* HomeViewModel.swift in Sources */,
 				0755688A2A71454B00617D64 /* Movie.swift in Sources */,
+				075568A32A72AA5400617D64 /* APIService.swift in Sources */,
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
 				075568872A7141D800617D64 /* NetworkingManager.swift in Sources */,
 				075568832A71401E00617D64 /* Constants.swift in Sources */,

@@ -30,22 +30,16 @@ extension Endpoint {
         }
     }
     
-    var queryItems: [String: String]? {
+    var queryItems: [String: String] {
         switch self {
         case .nowPlaying(let page):
-            return ["api_key": Constants.apiKey,
-                    "language" : "en-US",
-                    "page": "\(page)"]
+            return ["page": "\(page)"]
         case .upcoming(let page):
-            return ["api_key": Constants.apiKey,
-                    "language" : "en-US",
-                    "page": "\(page)"]
+            return ["page": "\(page)"]
         case .topRated(let page):
-            return ["api_key": Constants.apiKey,
-                    "language" : "en-US",
-                    "page": "\(page)"]
+            return ["page": "\(page)"]
         case .detail:
-            return ["api_key": Constants.apiKey, "append_to_response": "videos,credits,similar"]
+            return ["append_to_response": "videos,credits,similar"]
         }
     }
 }
@@ -57,11 +51,14 @@ extension Endpoint {
         urlComponents.host = host
         urlComponents.path = path
         
-        let requestQueryItems = queryItems?.compactMap { item in
+        let staticQueryItems = [URLQueryItem(name: "api_key", value: Constants.apiKey),
+                                URLQueryItem(name: "language", value: Constants.language)]
+        
+        let requestQueryItems = queryItems.compactMap { item in
             URLQueryItem(name: item.key, value: item.value)
         }
-        
-        urlComponents.queryItems = requestQueryItems
+
+        urlComponents.queryItems = staticQueryItems + requestQueryItems
         
         return urlComponents.url
     }
