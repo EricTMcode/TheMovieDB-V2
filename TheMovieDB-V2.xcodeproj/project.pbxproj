@@ -18,6 +18,9 @@
 		075568902A7146A200617D64 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755688F2A7146A200617D64 /* MovieResponse.swift */; };
 		075568922A71471000617D64 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568912A71471000617D64 /* HomeViewModel.swift */; };
 		075568962A7149B200617D64 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568952A7149B200617D64 /* HomeView.swift */; };
+		075568992A72954000617D64 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568982A72954000617D64 /* PreviewProvider.swift */; };
+		0755689C2A7296A600617D64 /* PosterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689B2A7296A600617D64 /* PosterCard.swift */; };
+		0755689F2A72970400617D64 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689E2A72970400617D64 /* RectangleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		0755688F2A7146A200617D64 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		075568912A71471000617D64 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		075568952A7149B200617D64 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		075568982A72954000617D64 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		0755689B2A7296A600617D64 /* PosterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCard.swift; sourceTree = "<group>"; };
+		0755689E2A72970400617D64 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 		0755687D2A713E3600617D64 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0755689D2A7296F900617D64 /* Components */,
+				075568972A72950D00617D64 /* Extensions */,
 				075568882A71453F00617D64 /* Model */,
 				075568812A71401700617D64 /* Helpers */,
 				0755687E2A713E4F00617D64 /* Networking */,
@@ -130,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				0755688E2A71469100617D64 /* View */,
+				0755689A2A72969300617D64 /* Components */,
 				0755688D2A71468D00617D64 /* ViewModel */,
 				0755688C2A71468400617D64 /* Model */,
 			);
@@ -158,6 +167,30 @@
 				075568952A7149B200617D64 /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		075568972A72950D00617D64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				075568982A72954000617D64 /* PreviewProvider.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0755689A2A72969300617D64 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0755689B2A7296A600617D64 /* PosterCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0755689D2A7296F900617D64 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0755689E2A72970400617D64 /* RectangleView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +265,7 @@
 			files = (
 				075568962A7149B200617D64 /* HomeView.swift in Sources */,
 				075568902A7146A200617D64 /* MovieResponse.swift in Sources */,
+				0755689F2A72970400617D64 /* RectangleView.swift in Sources */,
 				075568712A71392500617D64 /* ContentView.swift in Sources */,
 				0755686F2A71392500617D64 /* TheMovieDB_V2App.swift in Sources */,
 				075568922A71471000617D64 /* HomeViewModel.swift in Sources */,
@@ -239,6 +273,8 @@
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
 				075568872A7141D800617D64 /* NetworkingManager.swift in Sources */,
 				075568832A71401E00617D64 /* Constants.swift in Sources */,
+				0755689C2A7296A600617D64 /* PosterCard.swift in Sources */,
+				075568992A72954000617D64 /* PreviewProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
