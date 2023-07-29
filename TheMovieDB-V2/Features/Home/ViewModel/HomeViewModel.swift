@@ -41,7 +41,7 @@ final class HomeViewModel: ObservableObject {
             case .topRated(page: page):
                 self.topRated = response.results
             default:
-                self.nowPlaying = response.results
+                break
             }
         } catch {
             self.hasError = true

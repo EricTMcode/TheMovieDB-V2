@@ -48,7 +48,6 @@ struct BackdropCard: View {
                     .foregroundColor(.secondary)
             }
         }
-//        .frame(width: 332)
     }
 }
 
