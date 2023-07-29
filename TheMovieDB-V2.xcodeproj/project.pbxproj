@@ -25,6 +25,7 @@
 		075568A32A72AA5400617D64 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A22A72AA5400617D64 /* APIService.swift */; };
 		075568A52A73EB0300617D64 /* BackdropCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A42A73EB0300617D64 /* BackdropCard.swift */; };
 		075568A72A73EC7300617D64 /* BackdropCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A62A73EC7300617D64 /* BackdropCarouselView.swift */; };
+		075568AD2A75368300617D64 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568AC2A75368300617D64 /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		075568A22A72AA5400617D64 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		075568A42A73EB0300617D64 /* BackdropCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropCard.swift; sourceTree = "<group>"; };
 		075568A62A73EC7300617D64 /* BackdropCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropCarouselView.swift; sourceTree = "<group>"; };
+		075568AC2A75368300617D64 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				0755686E2A71392500617D64 /* TheMovieDB_V2App.swift */,
+				075568702A71392500617D64 /* ContentView.swift */,
 				0755687C2A713E3000617D64 /* Features */,
 				0755687D2A713E3600617D64 /* Base */,
 				075568722A71392600617D64 /* Assets.xcassets */,
@@ -100,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				0755688B2A71466600617D64 /* Home */,
-				075568702A71392500617D64 /* ContentView.swift */,
+				075568A82A75360A00617D64 /* Detail */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -205,6 +208,30 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		075568A82A75360A00617D64 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				075568AA2A75362A00617D64 /* View */,
+				075568A92A75362300617D64 /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		075568A92A75362300617D64 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				075568AC2A75368300617D64 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		075568AA2A75362A00617D64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075568AD2A75368300617D64 /* DetailViewModel.swift in Sources */,
 				075568962A7149B200617D64 /* HomeView.swift in Sources */,
 				075568902A7146A200617D64 /* MovieResponse.swift in Sources */,
 				0755689F2A72970400617D64 /* RectangleView.swift in Sources */,
