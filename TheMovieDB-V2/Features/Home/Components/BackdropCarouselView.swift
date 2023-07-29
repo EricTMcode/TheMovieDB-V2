@@ -14,13 +14,15 @@ struct BackdropCarouselView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .top, spacing: 20) {
                 ForEach(movies) { movie in
-                    BackdropCard(movie: movie)
-                        .frame(width: 332)
+                    NavigationLink(value: movie) {
+                        BackdropCard(movie: movie)
+                            .frame(width: 332)
+                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
             }
+            .padding(.leading)
         }
-        .padding(.leading)
     }
 }
 

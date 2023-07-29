@@ -55,6 +55,9 @@ struct HomeView: View {
                             .foregroundColor(.orange)
                     }
                 }
+                .navigationDestination(for: Movie.self) { movie in
+                    DetailView(id: movie.id)
+                }
             }
         }
     }

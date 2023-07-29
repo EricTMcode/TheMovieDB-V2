@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class DetailViewModel: ObservableObject {
     @Published private(set) var movie: Movie?
     @Published private(set) var error: NetworkingManager.NetworkingError?
