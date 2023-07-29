@@ -18,7 +18,6 @@
 		075568902A7146A200617D64 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755688F2A7146A200617D64 /* MovieResponse.swift */; };
 		075568922A71471000617D64 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568912A71471000617D64 /* HomeViewModel.swift */; };
 		075568962A7149B200617D64 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568952A7149B200617D64 /* HomeView.swift */; };
-		075568992A72954000617D64 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568982A72954000617D64 /* PreviewProvider.swift */; };
 		0755689C2A7296A600617D64 /* PosterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689B2A7296A600617D64 /* PosterCard.swift */; };
 		0755689F2A72970400617D64 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689E2A72970400617D64 /* RectangleView.swift */; };
 		075568A12A72985500617D64 /* PosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A02A72985500617D64 /* PosterCarouselView.swift */; };
@@ -27,6 +26,9 @@
 		075568A72A73EC7300617D64 /* BackdropCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A62A73EC7300617D64 /* BackdropCarouselView.swift */; };
 		075568AD2A75368300617D64 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568AC2A75368300617D64 /* DetailViewModel.swift */; };
 		075568AF2A75382800617D64 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568AE2A75382800617D64 /* DetailView.swift */; };
+		075568B12A753BAC00617D64 /* GeometryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568B02A753BAC00617D64 /* GeometryHelper.swift */; };
+		075568B32A75449800617D64 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568B22A75449800617D64 /* Bundle+Extension.swift */; };
+		075568B62A75457F00617D64 /* movie_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 075568B52A75457F00617D64 /* movie_list.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +44,6 @@
 		0755688F2A7146A200617D64 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		075568912A71471000617D64 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		075568952A7149B200617D64 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		075568982A72954000617D64 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		0755689B2A7296A600617D64 /* PosterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCard.swift; sourceTree = "<group>"; };
 		0755689E2A72970400617D64 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		075568A02A72985500617D64 /* PosterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCarouselView.swift; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		075568A62A73EC7300617D64 /* BackdropCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropCarouselView.swift; sourceTree = "<group>"; };
 		075568AC2A75368300617D64 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		075568AE2A75382800617D64 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		075568B02A753BAC00617D64 /* GeometryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryHelper.swift; sourceTree = "<group>"; };
+		075568B22A75449800617D64 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		075568B52A75457F00617D64 /* movie_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie_list.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				075568702A71392500617D64 /* ContentView.swift */,
 				0755687C2A713E3000617D64 /* Features */,
 				0755687D2A713E3600617D64 /* Base */,
+				075568B42A75456900617D64 /* Data */,
 				075568722A71392600617D64 /* Assets.xcassets */,
 				075568742A71392600617D64 /* Preview Content */,
 			);
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				075568822A71401E00617D64 /* Constants.swift */,
+				075568B02A753BAC00617D64 /* GeometryHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -186,7 +192,7 @@
 		075568972A72950D00617D64 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				075568982A72954000617D64 /* PreviewProvider.swift */,
+				075568B22A75449800617D64 /* Bundle+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,6 +239,14 @@
 				075568AE2A75382800617D64 /* DetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		075568B42A75456900617D64 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				075568B52A75457F00617D64 /* movie_list.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				075568762A71392600617D64 /* Preview Assets.xcassets in Resources */,
+				075568B62A75457F00617D64 /* movie_list.json in Resources */,
 				075568732A71392600617D64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,13 +331,14 @@
 				075568A12A72985500617D64 /* PosterCarouselView.swift in Sources */,
 				075568922A71471000617D64 /* HomeViewModel.swift in Sources */,
 				0755688A2A71454B00617D64 /* Movie.swift in Sources */,
+				075568B32A75449800617D64 /* Bundle+Extension.swift in Sources */,
 				075568A32A72AA5400617D64 /* APIService.swift in Sources */,
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
 				075568872A7141D800617D64 /* NetworkingManager.swift in Sources */,
+				075568B12A753BAC00617D64 /* GeometryHelper.swift in Sources */,
 				075568832A71401E00617D64 /* Constants.swift in Sources */,
 				0755689C2A7296A600617D64 /* PosterCard.swift in Sources */,
 				075568A52A73EB0300617D64 /* BackdropCard.swift in Sources */,
-				075568992A72954000617D64 /* PreviewProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

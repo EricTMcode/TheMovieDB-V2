@@ -46,7 +46,7 @@ struct PosterCard: View {
 
 struct PosterCard_Previews: PreviewProvider {
     static var previews: some View {
-        PosterCard(movie: dev.movie)
+        PosterCard(movie: Movie.localMovie)
             .frame(width: 90, height: 150)
     }
 }

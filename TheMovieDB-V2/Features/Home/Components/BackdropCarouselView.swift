@@ -28,6 +28,6 @@ struct BackdropCarouselView: View {
 
 struct BackdropCarouselView_Previews: PreviewProvider {
     static var previews: some View {
-        BackdropCarouselView(movies: dev.movies)
+        BackdropCarouselView(movies: Movie.localMovies)
     }
 }

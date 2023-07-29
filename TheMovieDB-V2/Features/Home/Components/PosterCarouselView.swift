@@ -47,7 +47,7 @@ struct PosterCarouselView: View {
 struct PosterCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            PosterCarouselView(title: "Movie of the day", movies: dev.movies)
+            PosterCarouselView(title: "Movie of the day", movies: Movie.localMovies)
         }
     }
 }

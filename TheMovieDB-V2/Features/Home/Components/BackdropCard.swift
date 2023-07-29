@@ -53,7 +53,7 @@ struct BackdropCard: View {
 
 struct BackdropCard_Previews: PreviewProvider {
     static var previews: some View {
-        BackdropCard(movie: dev.movie)
+        BackdropCard(movie: Movie.localMovie)
             .padding()
     }
 }

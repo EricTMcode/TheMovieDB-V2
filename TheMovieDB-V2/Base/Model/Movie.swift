@@ -16,6 +16,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let releaseDate: String?
     let voteAverage: Double
     let runtime: Int?
+    let genres: [MovieGenre]?
     
     var posterURL: URL {
         return URL(string: "\(Constants.imgUrl)\(posterPath ?? "")")!
@@ -28,4 +29,16 @@ struct Movie: Codable, Hashable, Identifiable {
     var backdropOriginalURL: URL {
         return URL(string: "\(Constants.imgOriginalUrl)\(backdropPath ?? "")")!
     }
+    
+    var genreText: String {
+        guard let genres = genres else {
+            return "n/a"
+        }
+        return genres.prefix(3).map { $0.name }.joined(separator: ", ")
+    }
+}
+
+struct MovieGenre: Codable, Hashable, Identifiable {
+    let id: Int
+    let name: String
 }
