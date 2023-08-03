@@ -29,6 +29,10 @@
 		075568B12A753BAC00617D64 /* GeometryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568B02A753BAC00617D64 /* GeometryHelper.swift */; };
 		075568B32A75449800617D64 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568B22A75449800617D64 /* Bundle+Extension.swift */; };
 		075568B62A75457F00617D64 /* movie_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 075568B52A75457F00617D64 /* movie_list.json */; };
+		075568B82A7546DD00617D64 /* MovieDetailTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568B72A7546DD00617D64 /* MovieDetailTitle.swift */; };
+		075568BD2A7BB1FA00617D64 /* TVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568BC2A7BB1FA00617D64 /* TVView.swift */; };
+		075568BF2A7BB21000617D64 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568BE2A7BB21000617D64 /* FavoritesView.swift */; };
+		075568C12A7BB21800617D64 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568C02A7BB21800617D64 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,10 @@
 		075568B02A753BAC00617D64 /* GeometryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryHelper.swift; sourceTree = "<group>"; };
 		075568B22A75449800617D64 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		075568B52A75457F00617D64 /* movie_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie_list.json; sourceTree = "<group>"; };
+		075568B72A7546DD00617D64 /* MovieDetailTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailTitle.swift; sourceTree = "<group>"; };
+		075568BC2A7BB1FA00617D64 /* TVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVView.swift; sourceTree = "<group>"; };
+		075568BE2A7BB21000617D64 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		075568C02A7BB21800617D64 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,9 @@
 			children = (
 				0755688B2A71466600617D64 /* Home */,
 				075568A82A75360A00617D64 /* Detail */,
+				075568B92A7BB1AA00617D64 /* Tv */,
+				075568BA2A7BB1C000617D64 /* Favorites */,
+				075568BB2A7BB1C500617D64 /* Search */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -212,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				0755689E2A72970400617D64 /* RectangleView.swift */,
+				075568B72A7546DD00617D64 /* MovieDetailTitle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -247,6 +259,30 @@
 				075568B52A75457F00617D64 /* movie_list.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		075568B92A7BB1AA00617D64 /* Tv */ = {
+			isa = PBXGroup;
+			children = (
+				075568BC2A7BB1FA00617D64 /* TVView.swift */,
+			);
+			path = Tv;
+			sourceTree = "<group>";
+		};
+		075568BA2A7BB1C000617D64 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				075568BE2A7BB21000617D64 /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		075568BB2A7BB1C500617D64 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				075568C02A7BB21800617D64 /* SearchView.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +356,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075568BF2A7BB21000617D64 /* FavoritesView.swift in Sources */,
 				075568AD2A75368300617D64 /* DetailViewModel.swift in Sources */,
 				075568AF2A75382800617D64 /* DetailView.swift in Sources */,
 				075568962A7149B200617D64 /* HomeView.swift in Sources */,
+				075568BD2A7BB1FA00617D64 /* TVView.swift in Sources */,
 				075568902A7146A200617D64 /* MovieResponse.swift in Sources */,
 				0755689F2A72970400617D64 /* RectangleView.swift in Sources */,
 				075568712A71392500617D64 /* ContentView.swift in Sources */,
@@ -331,6 +369,7 @@
 				075568A12A72985500617D64 /* PosterCarouselView.swift in Sources */,
 				075568922A71471000617D64 /* HomeViewModel.swift in Sources */,
 				0755688A2A71454B00617D64 /* Movie.swift in Sources */,
+				075568C12A7BB21800617D64 /* SearchView.swift in Sources */,
 				075568B32A75449800617D64 /* Bundle+Extension.swift in Sources */,
 				075568A32A72AA5400617D64 /* APIService.swift in Sources */,
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
@@ -338,6 +377,7 @@
 				075568B12A753BAC00617D64 /* GeometryHelper.swift in Sources */,
 				075568832A71401E00617D64 /* Constants.swift in Sources */,
 				0755689C2A7296A600617D64 /* PosterCard.swift in Sources */,
+				075568B82A7546DD00617D64 /* MovieDetailTitle.swift in Sources */,
 				075568A52A73EB0300617D64 /* BackdropCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

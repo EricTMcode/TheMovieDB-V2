@@ -47,13 +47,13 @@ struct HomeView: View {
                             }
                         } label: {
                             Image(systemName: "arrow.counterclockwise")
-                                .foregroundColor(.orange)
                         }
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Image(systemName: "gear")
                             .foregroundColor(.orange)
                     }
+                    
                 }
                 .navigationDestination(for: Movie.self) { movie in
                     DetailView(id: movie.id)

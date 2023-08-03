@@ -25,6 +25,15 @@ struct DetailView: View {
                 ProgressView()
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "star")
+                }
+            }
+        }
         .alert(isPresented: $vm.hasError, error: vm.error) {
             Button("Retry") {
                 Task {
@@ -37,7 +46,9 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(id: Movie.localMovie.id)
+        NavigationStack {
+            DetailView(id: Movie.localMovie.id)
+        }
     }
 }
 
@@ -58,8 +69,14 @@ struct MovieDetailView: View {
                         
                         MovieDetailTitleView
                     }
+                    .offset(x: 0, y: GeometryHelper.getOffsetForHeaderImage(geo))
                 }
-                .frame(height: UIScreen.main.bounds.height * 0.4)
+                .frame(height: UIScreen.main.bounds.height * 0.5)
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    MovieDetailOverviewView
+                    MovieDetailDistributionView
+                }
             }
         }
         .ignoresSafeArea()
@@ -100,5 +117,22 @@ struct MovieDetailView: View {
         .shadow(radius: 7)
         .padding(.leading)
         .padding(.bottom, 8)
+    }
+    
+    private var MovieDetailOverviewView: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            MovieDetailTitle(text: "Overview")
+            Text(movie.overview)
+                .font(.callout)
+        }
+        .padding(.top, 5)
+        .padding(.horizontal)
+    }
+    
+    private var MovieDetailDistributionView: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            MovieDetailTitle(text: "Distribution")
+        }
+        .padding(.horizontal)
     }
 }
