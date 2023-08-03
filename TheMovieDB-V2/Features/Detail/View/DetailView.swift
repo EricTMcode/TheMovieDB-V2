@@ -77,6 +77,7 @@ struct MovieDetailView: View {
                     MovieDetailOverviewView
                     MovieDetailDistributionView
                 }
+                .padding(.bottom, 90)
             }
         }
         .ignoresSafeArea()
@@ -132,6 +133,44 @@ struct MovieDetailView: View {
     private var MovieDetailDistributionView: some View {
         VStack(alignment: .leading, spacing: 15) {
             MovieDetailTitle(text: "Distribution")
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 15) {
+                    if let cast = movie.credits?.cast, !cast.isEmpty {
+                        ForEach(cast.prefix(9)) { cast in
+                            VStack(alignment: .leading) {
+                                ZStack {
+                                    RectangleView()
+                                        .shadow(radius: 4)
+                                    
+                                    AsyncImage(url: cast.profileURL) { phase in
+                                        if let image = phase.image {
+                                            image
+                                                .resizable()
+                                                .scaledToFill()
+                                                .shadow(radius: 4)
+                                        } else if phase.error != nil {
+                                            Image(systemName: "person")
+                                                .font(.system(size: 25))
+                                                .opacity(0.5)
+                                        } else {
+                                            ProgressView()
+                                        }
+                                    }
+                                }
+                                .frame(width: 80, height: 80)
+                                .cornerRadius(20)
+                                
+                                Text(cast.name)
+                                    .font(.footnote)
+                                Text(cast.character)
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                            }
+                            .frame(width: 80)
+                        }
+                    }
+                }
+            }
         }
         .padding(.horizontal)
     }
