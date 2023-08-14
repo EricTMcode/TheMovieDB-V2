@@ -58,6 +58,10 @@ struct HomeView: View {
                 .navigationDestination(for: Movie.self) { movie in
                     DetailView(id: movie.id)
                 }
+                .navigationDestination(for: [Movie].self) { movies in
+                    GridView(title: "Movies", movies: movies)
+//                    PosterCarouselView(title: "Movie of the day", movies: movies)
+                }
             }
         }
     }

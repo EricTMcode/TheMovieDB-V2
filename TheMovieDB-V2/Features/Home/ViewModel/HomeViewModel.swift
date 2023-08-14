@@ -12,6 +12,7 @@ final class HomeViewModel: ObservableObject {
     @Published private(set) var nowPlaying: [Movie] = []
     @Published private(set) var upcoming: [Movie] = []
     @Published private(set) var topRated: [Movie] = []
+    @Published private(set) var movies: [Movie] = []
     @Published private(set) var error: NetworkingManager.NetworkingError?
     @Published private(set) var viewState: ViewState?
     @Published var hasError = false
@@ -52,32 +53,6 @@ final class HomeViewModel: ObservableObject {
             }
         }
     }
-    
-    //    func fetchMovies2(from endpoint: Endpoint) async {
-    //        let apiService = APIService()
-    //        viewState = .loading
-    //        defer { viewState = .finished}
-    //        do {
-    //            let response = try await apiService.request(endpoint, type: MovieResponse.self)
-    //            switch endpoint {
-    //            case .nowPlaying(page: page):
-    //                self.nowPlaying = response.results
-    //            case .upcoming(page: page):
-    //                self.upcoming = response.results
-    //            case .topRated(page: page):
-    //                self.topRated = response.results
-    //            default:
-    //                self.nowPlaying = response.results
-    //            }
-    //        } catch {
-    //            self.hasError = true
-    //            if let networkingError = error as? NetworkingManager.NetworkingError {
-    //                self.error = networkingError
-    //            } else {
-    //                self.error = .custom(error: error)
-    //            }
-    //        }
-    //    }
     
     func populateMovies() async {
         await fetchMovies(from: .nowPlaying(page: page))
