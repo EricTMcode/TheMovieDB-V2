@@ -14,7 +14,7 @@ final class NetworkingManager {
     private init() {}
     
     func request<T: Codable>(_ endpoint: Endpoint, type: T.Type?) async throws -> T {
-       
+        
         guard let url = endpoint.url else { throw NetworkingError.invalidUrl }
         
         let request = buildRequest(from: url, methodType: endpoint.methodType)

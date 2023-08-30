@@ -71,7 +71,7 @@ extension Endpoint {
         let requestQueryItems = queryItems.compactMap { item in
             URLQueryItem(name: item.key, value: item.value)
         }
-
+        
         urlComponents.queryItems = staticQueryItems + requestQueryItems
         
         return urlComponents.url

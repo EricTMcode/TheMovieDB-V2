@@ -21,7 +21,6 @@
 		0755689C2A7296A600617D64 /* PosterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689B2A7296A600617D64 /* PosterCard.swift */; };
 		0755689F2A72970400617D64 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755689E2A72970400617D64 /* RectangleView.swift */; };
 		075568A12A72985500617D64 /* PosterCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A02A72985500617D64 /* PosterCarouselView.swift */; };
-		075568A32A72AA5400617D64 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A22A72AA5400617D64 /* APIService.swift */; };
 		075568A52A73EB0300617D64 /* BackdropCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A42A73EB0300617D64 /* BackdropCard.swift */; };
 		075568A72A73EC7300617D64 /* BackdropCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568A62A73EC7300617D64 /* BackdropCarouselView.swift */; };
 		075568AD2A75368300617D64 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568AC2A75368300617D64 /* DetailViewModel.swift */; };
@@ -52,7 +51,6 @@
 		0755689B2A7296A600617D64 /* PosterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCard.swift; sourceTree = "<group>"; };
 		0755689E2A72970400617D64 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		075568A02A72985500617D64 /* PosterCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCarouselView.swift; sourceTree = "<group>"; };
-		075568A22A72AA5400617D64 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		075568A42A73EB0300617D64 /* BackdropCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropCard.swift; sourceTree = "<group>"; };
 		075568A62A73EC7300617D64 /* BackdropCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackdropCarouselView.swift; sourceTree = "<group>"; };
 		075568AC2A75368300617D64 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 			children = (
 				075568842A7141C700617D64 /* Endpoint.swift */,
 				075568862A7141D800617D64 /* NetworkingManager.swift */,
-				075568A22A72AA5400617D64 /* APIService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -375,7 +372,6 @@
 				0755688A2A71454B00617D64 /* Movie.swift in Sources */,
 				075568C12A7BB21800617D64 /* SearchView.swift in Sources */,
 				075568B32A75449800617D64 /* Bundle+Extension.swift in Sources */,
-				075568A32A72AA5400617D64 /* APIService.swift in Sources */,
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
 				075568872A7141D800617D64 /* NetworkingManager.swift in Sources */,
 				075568B12A753BAC00617D64 /* GeometryHelper.swift in Sources */,

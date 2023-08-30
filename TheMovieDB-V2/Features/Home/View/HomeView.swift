@@ -12,56 +12,61 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 10) {
+                ScrollView(showsIndicators: false) {
                     BackdropCarouselView(movies: vm.nowPlaying)
                     PosterCarouselView(title: "Movie of the day", movies: vm.nowPlaying)
                     PosterCarouselView(title: "Recently Added", movies: vm.upcoming)
                     PosterCarouselView(title: "Top Rated Movie", movies: vm.topRated)
                 }
-                .padding([.top, .bottom])
-                .navigationTitle("Welcome")
-                .task {
-                    if !vm.hasAppeared {
+                .refreshable {
+                    Task {
                         await vm.populateMovies()
-                        vm.hasAppeared = true
                     }
                 }
-                .overlay {
-                    if vm.isLoading {
-                        ProgressView()
+            }
+            .padding([.top, .bottom])
+            .navigationTitle("Welcome")
+            .task {
+                if !vm.hasAppeared {
+                    await vm.populateMovies()
+                    vm.hasAppeared = true
+                }
+            }
+            .overlay {
+                if vm.isLoading {
+                    ProgressView()
+                }
+            }
+            .alert(isPresented: $vm.hasError, error: vm.error) {
+                Button("Retry") {
+                    Task {
+                        await vm.populateMovies()
                     }
                 }
-                .alert(isPresented: $vm.hasError, error: vm.error) {
-                    Button("Retry") {
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
                         Task {
                             await vm.populateMovies()
                         }
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
                     }
                 }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
-                            Task {
-                                await vm.populateMovies()
-                            }
-                        } label: {
-                            Image(systemName: "arrow.counterclockwise")
-                        }
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Image(systemName: "gear")
-                            .foregroundColor(.orange)
-                    }
-                    
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(systemName: "gear")
+                        .foregroundColor(.orange)
                 }
-                .navigationDestination(for: Movie.self) { movie in
-                    DetailView(id: movie.id)
-                }
-                .navigationDestination(for: [Movie].self) { movies in
-                    GridView(title: "Movies", movies: movies)
-//                    PosterCarouselView(title: "Movie of the day", movies: movies)
-                }
+                
+            }
+            .navigationDestination(for: Movie.self) { movie in
+                DetailView(id: movie.id)
+            }
+            .navigationDestination(for: [Movie].self) { movies in
+                GridView(title: "Movies", movies: movies)
+                //                    PosterCarouselView(title: "Movie of the day", movies: movies)
             }
         }
     }
