@@ -12,17 +12,17 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 10) {
-                ScrollView(showsIndicators: false) {
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 10) {
                     BackdropCarouselView(movies: vm.nowPlaying)
                     PosterCarouselView(title: "Movie of the day", movies: vm.nowPlaying)
                     PosterCarouselView(title: "Recently Added", movies: vm.upcoming)
                     PosterCarouselView(title: "Top Rated Movie", movies: vm.topRated)
                 }
-                .refreshable {
-                    Task {
-                        await vm.populateMovies()
-                    }
+            }
+            .refreshable {
+                Task {
+                    await vm.populateMovies()
                 }
             }
             .padding([.top, .bottom])

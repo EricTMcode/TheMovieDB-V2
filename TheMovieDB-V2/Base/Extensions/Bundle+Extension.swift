@@ -35,6 +35,8 @@ extension Movie {
     }
     
     static var localMovie: Movie {
-        localMovies[0]
+//        localMovies[0]
+        let movie: Movie = Bundle.main.decode(filename: "movie_info")
+        return movie
     }
 }
