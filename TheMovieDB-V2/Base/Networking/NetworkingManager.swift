@@ -14,11 +14,14 @@ final class NetworkingManager {
     private init() {}
     
     func request<T: Codable>(_ endpoint: Endpoint, type: T.Type?) async throws -> T {
+       
         guard let url = endpoint.url else { throw NetworkingError.invalidUrl }
         
-        print(url)
+        let request = buildRequest(from: url, methodType: endpoint.methodType)
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        print(request)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
         
         guard let response = response as? HTTPURLResponse,
               (200...300) ~= response.statusCode else {
@@ -57,5 +60,20 @@ extension NetworkingManager.NetworkingError {
         case .custom(let err):
             return "Something went wrong \(err.localizedDescription)"
         }
+    }
+}
+
+private extension NetworkingManager {
+    func buildRequest(from url: URL, methodType: Endpoint.MethodType) -> URLRequest {
+        var request = URLRequest(url: url)
+        
+        switch methodType {
+        case .GET:
+            request.httpMethod = "GET"
+        case .POST(let data):
+            request.httpMethod = "POST"
+            request.httpBody = data
+        }
+        return request
     }
 }

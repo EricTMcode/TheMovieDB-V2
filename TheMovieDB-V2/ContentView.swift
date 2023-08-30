@@ -28,7 +28,7 @@ struct ContentView: View {
                 }
         }
         .onAppear {
-            // Correct the transparency bug for Tab bars
+            // Correct the transparency for Tab bars
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithOpaqueBackground()
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance

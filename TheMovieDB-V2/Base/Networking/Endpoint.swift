@@ -15,6 +15,13 @@ enum Endpoint {
 }
 
 extension Endpoint {
+    enum MethodType {
+        case GET
+        case POST(data: Data?)
+    }
+}
+
+extension Endpoint {
     var host: String { "api.themoviedb.org" }
     
     var path: String {
@@ -27,6 +34,13 @@ extension Endpoint {
             return "/3/movie/top_rated"
         case .detail(let id):
             return "/3/movie/\(id)"
+        }
+    }
+    
+    var methodType: MethodType {
+        switch self {
+        case .nowPlaying, .upcoming, .topRated, .detail:
+            return .GET
         }
     }
     
