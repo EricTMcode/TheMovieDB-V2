@@ -107,7 +107,7 @@ struct MovieDetailView: View {
                 .foregroundColor(.white)
                 .lineLimit(1)
             
-            Text("★ \(movie.voteAverage, specifier: "%.1f")   \("1h25")   \("2023")")
+            Text("★ \(movie.voteAverage, specifier: "%.1f")   \(movie.durationText)   \("2023")")
                 .font(.callout)
                 .fontWeight(.medium)
             

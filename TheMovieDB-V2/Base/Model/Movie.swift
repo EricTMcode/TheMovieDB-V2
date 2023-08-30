@@ -19,6 +19,13 @@ struct Movie: Codable, Hashable, Identifiable {
     let genres: [MovieGenre]?
     let credits: MovieCredit?
     
+    static private let durationFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .abbreviated
+        formatter.allowedUnits = [.hour, .minute]
+        return formatter
+    }()
+    
     var posterURL: URL {
         return URL(string: "\(Constants.imgUrl)\(posterPath ?? "")")!
     }
@@ -36,6 +43,13 @@ struct Movie: Codable, Hashable, Identifiable {
             return "n/a"
         }
         return genres.prefix(3).map { $0.name }.joined(separator: ", ")
+    }
+    
+    var durationText: String {
+        guard let runtime = runtime, runtime > 0 else {
+            return "n/a"
+        }
+        return Movie.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "n/a"
     }
 }
 
