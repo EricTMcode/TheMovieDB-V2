@@ -18,6 +18,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let runtime: Int?
     let genres: [MovieGenre]?
     let credits: MovieCredit?
+    let similar: MovieSimilarResponse?
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -71,6 +72,14 @@ struct Movie: Codable, Hashable, Identifiable {
         return Movie.yearFormatter.string(from: date)
     }
     
+    var cast: [MovieCast]? {
+        credits?.cast
+    }
+    
+    var similarVideo: [Movie]? {
+        similar?.results
+    }
+    
 }
 
 struct MovieGenre: Codable, Hashable, Identifiable {
@@ -91,4 +100,8 @@ struct MovieCast: Codable, Hashable, Identifiable {
     var profileURL: URL {
         return URL(string: "\(Constants.imgUrl)\(profilePath ?? "")")!
     }
+}
+
+struct MovieSimilarResponse: Codable, Hashable {
+    let results: [Movie]
 }

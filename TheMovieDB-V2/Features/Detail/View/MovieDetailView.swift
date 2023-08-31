@@ -31,7 +31,9 @@ struct MovieDetailView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     MovieDetailOverviewView
                     MovieDetailDistributionView
+                    MovieDetailSimilarMoviesView
                 }
+                .padding(.horizontal)
                 .padding(.bottom, 90)
             }
         }
@@ -82,7 +84,6 @@ struct MovieDetailView: View {
                 .font(.callout)
         }
         .padding(.top, 5)
-        .padding(.horizontal)
     }
     
     private var MovieDetailDistributionView: some View {
@@ -90,7 +91,7 @@ struct MovieDetailView: View {
             MovieDetailTitle(text: "Distribution")
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 15) {
-                    if let cast = movie.credits?.cast, !cast.isEmpty {
+                    if let cast = movie.cast, !cast.isEmpty {
                         ForEach(cast.prefix(9)) { cast in
                             VStack(alignment: .leading) {
                                 ZStack {
@@ -127,7 +128,27 @@ struct MovieDetailView: View {
                 }
             }
         }
-        .padding(.horizontal)
+    }
+    
+    private var MovieDetailSimilarMoviesView: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            if movie.similarVideo != nil {
+                MovieDetailTitle(text: "Similar Movies")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 15) {
+                        
+                        
+                        ForEach(movie.similarVideo!) { movie in
+                            NavigationLink(value: movie) {
+                                PosterCard(movie: movie)
+                                    .frame(width: 105, height: 195)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -30,6 +30,7 @@ struct PosterCard: View {
             .cornerRadius(12)
             .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 5)
             
+            
             VStack(alignment: .leading) {
                 Text(movie.title)
                     .lineLimit(1)
@@ -39,8 +40,9 @@ struct PosterCard: View {
                     .foregroundColor(.secondary)
                     .font(.caption.bold())
             }
+            .lineLimit(1)
         }
-        .frame(width: 90, height: 150)
+//        .frame(width: 90, height: 150)
     }
 }
 
