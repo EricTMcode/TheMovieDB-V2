@@ -19,6 +19,18 @@ struct Movie: Codable, Hashable, Identifiable {
     let genres: [MovieGenre]?
     let credits: MovieCredit?
     
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        return dateFormatter
+    }()
+    
+    static private let yearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter
+    }()
+    
     static private let durationFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .abbreviated
@@ -51,6 +63,14 @@ struct Movie: Codable, Hashable, Identifiable {
         }
         return Movie.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "n/a"
     }
+    
+    var yearText: String {
+        guard let releaseDate = releaseDate, let date = Movie.dateFormatter.date(from: releaseDate) else {
+            return "n/a"
+        }
+        return Movie.yearFormatter.string(from: date)
+    }
+    
 }
 
 struct MovieGenre: Codable, Hashable, Identifiable {
