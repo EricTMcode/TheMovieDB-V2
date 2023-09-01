@@ -12,6 +12,7 @@ enum Endpoint {
     case upcoming(page: Int)
     case topRated(page: Int)
     case detail(id: Int)
+    case person(id: Int)
 }
 
 extension Endpoint {
@@ -34,12 +35,14 @@ extension Endpoint {
             return "/3/movie/top_rated"
         case .detail(let id):
             return "/3/movie/\(id)"
+        case .person(let id):
+            return "/3/person/\(id)"
         }
     }
     
     var methodType: MethodType {
         switch self {
-        case .nowPlaying, .upcoming, .topRated, .detail:
+        case .nowPlaying, .upcoming, .topRated, .detail, .person:
             return .GET
         }
     }
@@ -54,6 +57,8 @@ extension Endpoint {
             return ["page": "\(page)"]
         case .detail:
             return ["append_to_response": "videos,credits,similar"]
+        case .person:
+            return ["append_to_response": "movie_credits"]
         }
     }
 }

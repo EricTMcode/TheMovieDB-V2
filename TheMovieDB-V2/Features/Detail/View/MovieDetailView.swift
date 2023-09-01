@@ -79,7 +79,7 @@ struct MovieDetailView: View {
     
     private var MovieDetailOverviewView: some View {
         VStack(alignment: .leading, spacing: 12) {
-            MovieDetailTitle(text: "Overview")
+            TextDetailTitle(text: "Overview")
             Text(movie.overview)
                 .font(.callout)
         }
@@ -88,7 +88,7 @@ struct MovieDetailView: View {
     
     private var MovieDetailDistributionView: some View {
         VStack(alignment: .leading, spacing: 15) {
-            MovieDetailTitle(text: "Distribution")
+            TextDetailTitle(text: "Distribution")
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 15) {
                     if let cast = movie.cast, !cast.isEmpty {
@@ -133,7 +133,7 @@ struct MovieDetailView: View {
     private var MovieDetailSimilarMoviesView: some View {
         VStack(alignment: .leading, spacing: 15) {
             if movie.similarVideo != nil {
-                MovieDetailTitle(text: "Similar Movies")
+                TextDetailTitle(text: "Similar Movies")
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(alignment: .top, spacing: 15) {
                         
@@ -152,7 +152,7 @@ struct MovieDetailView: View {
     }
 }
 
-struct MovieDetailView2_Previews: PreviewProvider {
+struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         MovieDetailView(movie: Movie.localMovie)
     }

@@ -11,7 +11,7 @@ struct RectangleView: View {
     var body: some View {
         Rectangle()
             .foregroundColor(.gray)
-            .opacity(0.3)
+            .opacity(0.5)
     }
 }
 
