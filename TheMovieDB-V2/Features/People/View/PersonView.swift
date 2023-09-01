@@ -32,14 +32,16 @@ struct PersonView_Previews: PreviewProvider {
 }
 
 struct PersonDetailView: View {
+    @State private var showFullDescription = false
     let person: Person
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(person.name)
             PersonPictureView
-            Text(person.biographyText)
+            PersonBiographyView
         }
+        .padding(.horizontal)
     }
     
     private var PersonPictureView: some View {
@@ -73,7 +75,20 @@ struct PersonDetailView: View {
     private var PersonBiographyView: some View {
         VStack(alignment: .leading, spacing: 12) {
             TextDetailTitle(text: "Biography")
+            VStack(alignment: .leading) {
+                Text(person.biographyText)
+                    .lineLimit(showFullDescription ? nil : 4)
+                if !person.biography.isEmpty  {
+                    Button {
+                        showFullDescription.toggle()
+                    } label: {
+                        Text(showFullDescription ? "See Less..." : "Read more...")
+                            .padding(.vertical, -4)
+                    }
+                }
+            }
+            .font(.callout)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
-    
 }

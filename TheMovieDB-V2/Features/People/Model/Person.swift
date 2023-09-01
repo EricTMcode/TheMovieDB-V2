@@ -10,7 +10,7 @@ import Foundation
 struct Person: Codable, Identifiable, Hashable {
     let id: Int
     let name: String
-    let biography: String?
+    let biography: String
     let profilePath: String?
     let placeOfBirth: String?
     let birthday: String?
@@ -30,12 +30,9 @@ struct Person: Codable, Identifiable, Hashable {
     }
     
     var biographyText: String {
-        guard let biography = biography, biography.count > 0 else {
-            return "n/a"
-        }
-        return biography
+        let errorText = "We don't have a biography."
+        return biography.isEmpty ? errorText : biography
     }
-
 }
 
 struct MoviePersonCredit: Codable, Hashable {
