@@ -31,8 +31,12 @@ struct PersonView: View {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonView(id: 1087262)
-        PersonView(id: 54693)
+        NavigationStack {
+//            PersonView(id: 2152678)
+//            PersonView(id: 1323109)
+//            PersonView(id: 1087262)
+            PersonView(id: 54693)
+        }
     }
 }
 
@@ -41,12 +45,16 @@ struct PersonDetailView: View {
     let person: Person
     
     var body: some View {
-        VStack(alignment: .leading) {
-            PersonInfoView
-            PersonPictureView
-            PersonBiographyView
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 20) {
+                PersonPictureView
+                PersonInfoView
+                PersonBiographyView
+                PersonFilmographyView
+            }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private var PersonPictureView: some View {
@@ -67,14 +75,15 @@ struct PersonDetailView: View {
                     ProgressView()
                 }
             }
+            
         }
         .frame(width: 130, height: 180)
-        .shadow(radius: 12)
         .cornerRadius(8)
         .overlay {
             RoundedRectangle(cornerRadius: 8)
-                .stroke(.gray.opacity(0.4), lineWidth: 1)
+                .stroke(.black.opacity(0.2), lineWidth: 1)
         }
+        .shadow(radius: 5)
     }
     
     private var PersonInfoView: some View {
@@ -96,7 +105,7 @@ struct PersonDetailView: View {
             VStack(alignment: .leading) {
                 Text(person.biographyText)
                     .lineLimit(showFullDescription ? nil : 4)
-                if !person.biography.isEmpty  {
+                if person.biographyText.count > 190 {
                     Button {
                         showFullDescription.toggle()
                     } label: {
@@ -107,6 +116,25 @@ struct PersonDetailView: View {
             }
             .font(.callout)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+    
+    private var PersonFilmographyView: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            TextDetailTitle(text: "Filmography")
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 10) {
+                    if let movieCast = person.movieCast {
+                        ForEach(movieCast) { movie in
+                            NavigationLink(value: movie) {
+                                PosterCard(movie: movie)
+                                    .frame(width: 90, height: 170)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+            }
         }
     }
 }

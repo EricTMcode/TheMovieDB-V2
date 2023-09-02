@@ -7,13 +7,13 @@
 
 import Foundation
 
-@MainActor
 class DetailViewModel: ObservableObject {
     @Published private(set) var movie: Movie?
     @Published private(set) var error: NetworkingManager.NetworkingError?
     @Published private(set) var viewState: ViewState?
     @Published var hasError = false
     
+    @MainActor
     func fetchDetails(for id: Int) async {
         viewState = .loading
         defer { viewState = .finished }

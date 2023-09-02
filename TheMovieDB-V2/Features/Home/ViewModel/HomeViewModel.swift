@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 final class HomeViewModel: ObservableObject {
     @Published private(set) var nowPlaying: [Movie] = []
     @Published private(set) var upcoming: [Movie] = []
@@ -29,6 +28,7 @@ final class HomeViewModel: ObservableObject {
         viewState == .fetching
     }
     
+    @MainActor
     func fetchMovies(from endpoint: Endpoint) async {
         viewState = .loading
         defer { viewState = .finished }

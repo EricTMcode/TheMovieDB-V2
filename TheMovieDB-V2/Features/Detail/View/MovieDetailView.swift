@@ -90,39 +90,42 @@ struct MovieDetailView: View {
         VStack(alignment: .leading, spacing: 15) {
             TextDetailTitle(text: "Distribution")
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .top, spacing: 15) {
+                LazyHStack(alignment: .top, spacing: 10) {
                     if let cast = movie.cast, !cast.isEmpty {
                         ForEach(cast.prefix(9)) { cast in
-                            VStack(alignment: .leading) {
-                                ZStack {
-                                    RectangleView()
-                                        .shadow(radius: 4)
-                                    
-                                    AsyncImage(url: cast.profileURL) { phase in
-                                        if let image = phase.image {
-                                            image
-                                                .resizable()
-                                                .scaledToFill()
-                                                .shadow(radius: 4)
-                                        } else if phase.error != nil {
-                                            Image(systemName: "person")
-                                                .font(.system(size: 25))
-                                                .opacity(0.5)
-                                        } else {
-                                            ProgressView()
+                            NavigationLink(value: cast) {
+                                VStack(alignment: .leading) {
+                                    ZStack {
+                                        RectangleView()
+                                            .shadow(radius: 4)
+                                        
+                                        AsyncImage(url: cast.profileURL) { phase in
+                                            if let image = phase.image {
+                                                image
+                                                    .resizable()
+                                                    .scaledToFill()
+                                                    .shadow(radius: 4)
+                                            } else if phase.error != nil {
+                                                Image(systemName: "person")
+                                                    .font(.system(size: 25))
+                                                    .opacity(0.5)
+                                            } else {
+                                                ProgressView()
+                                            }
                                         }
                                     }
+                                    .frame(width: 80, height: 80)
+                                    .cornerRadius(20)
+                                    
+                                    Text(cast.name)
+                                        .font(.footnote)
+                                    Text(cast.character)
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
                                 }
-                                .frame(width: 80, height: 80)
-                                .cornerRadius(20)
-                                
-                                Text(cast.name)
-                                    .font(.footnote)
-                                Text(cast.character)
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
+                                .frame(width: 80)
                             }
-                            .frame(width: 80)
+                            .buttonStyle(.plain)
                         }
                     }
                 }
@@ -135,13 +138,13 @@ struct MovieDetailView: View {
             if movie.similarVideo != nil {
                 TextDetailTitle(text: "Similar Movies")
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(alignment: .top, spacing: 15) {
+                    LazyHStack(alignment: .top, spacing: 10) {
                         
                         
                         ForEach(movie.similarVideo!) { movie in
                             NavigationLink(value: movie) {
                                 PosterCard(movie: movie)
-                                    .frame(width: 105, height: 195)
+                                    .frame(width: 90, height: 170)
                             }
                             .buttonStyle(.plain)
                         }

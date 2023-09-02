@@ -14,6 +14,7 @@ class PersonViewModel: ObservableObject {
     @Published var hasError = false
     @Published var showFullDescription = false
     
+    @MainActor
     func fetchPerson(for id: Int) async {
         viewState = .loading
         defer { viewState = .finished }
