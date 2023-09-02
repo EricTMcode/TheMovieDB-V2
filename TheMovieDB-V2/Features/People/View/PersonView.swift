@@ -21,6 +21,11 @@ struct PersonView: View {
         .task {
             await vm.fetchPerson(for: id)
         }
+        .overlay {
+            if vm.viewState == .loading {
+                ProgressView()
+            }
+        }
     }
 }
 
@@ -37,7 +42,7 @@ struct PersonDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(person.name)
+            PersonInfoView
             PersonPictureView
             PersonBiographyView
         }
@@ -70,6 +75,19 @@ struct PersonDetailView: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(.gray.opacity(0.4), lineWidth: 1)
         }
+    }
+    
+    private var PersonInfoView: some View {
+        VStack(alignment: .leading) {
+            Text(person.name)
+                .font(.title)
+                .fontWeight(.semibold)
+                .lineLimit(1)
+            Text(person.placeOfBirthText)
+            Text(person.birthdayText)
+            Text(person.knownForDepartmentText)
+        }
+        .font(.callout)
     }
     
     private var PersonBiographyView: some View {
