@@ -31,7 +31,7 @@ struct MovieDetailView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     MovieDetailOverviewView
                     MovieDetailDistributionView
-                    MovieDetailSimilarMoviesView
+                    MovieDetailRecommendationsView
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 90)
@@ -133,13 +133,13 @@ struct MovieDetailView: View {
         }
     }
     
-    private var MovieDetailSimilarMoviesView: some View {
+    private var MovieDetailRecommendationsView: some View {
         VStack(alignment: .leading, spacing: 15) {
-            if movie.similarVideo != nil {
-                TextDetailTitle(text: "Similar Movies")
+            if movie.recommendationsVideo != nil {
+                TextDetailTitle(text: "Recommendations")
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(alignment: .top, spacing: 10) {
-                        ForEach(movie.similarVideo!) { movie in
+                        ForEach(movie.recommendationsVideo!) { movie in
                             NavigationLink(value: movie) {
                                 PosterCard(movie: movie)
                                     .frame(width: 90, height: 170)

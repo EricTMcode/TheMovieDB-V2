@@ -56,7 +56,7 @@ extension Endpoint {
         case .topRated(let page):
             return ["page": "\(page)"]
         case .detail:
-            return ["append_to_response": "videos,credits,similar"]
+            return ["append_to_response": "videos,credits,recommendations"]
         case .person:
             return ["append_to_response": "movie_credits"]
         }

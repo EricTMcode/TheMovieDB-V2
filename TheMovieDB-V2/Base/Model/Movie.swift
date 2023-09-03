@@ -19,7 +19,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let runtime: Int?
     let genres: [MovieGenre]?
     let credits: MovieCredit?
-    let similar: MovieSimilarResponse?
+    let recommendations: MovieRecommendationsResponse?
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -77,10 +77,9 @@ struct Movie: Codable, Hashable, Identifiable {
         credits?.cast
     }
     
-    var similarVideo: [Movie]? {
-        similar?.results
+    var recommendationsVideo: [Movie]? {
+        recommendations?.results
     }
-    
 }
 
 struct MovieGenre: Codable, Hashable, Identifiable {
@@ -103,6 +102,6 @@ struct MovieCast: Codable, Hashable, Identifiable {
     }
 }
 
-struct MovieSimilarResponse: Codable, Hashable {
+struct MovieRecommendationsResponse: Codable, Hashable {
     let results: [Movie]
 }
