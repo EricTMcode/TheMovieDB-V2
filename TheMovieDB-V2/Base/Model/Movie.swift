@@ -15,6 +15,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let backdropPath: String?
     let releaseDate: String?
     let voteAverage: Double
+    let voteCount: Int
     let runtime: Int?
     let genres: [MovieGenre]?
     let credits: MovieCredit?

@@ -139,8 +139,6 @@ struct MovieDetailView: View {
                 TextDetailTitle(text: "Similar Movies")
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(alignment: .top, spacing: 10) {
-                        
-                        
                         ForEach(movie.similarVideo!) { movie in
                             NavigationLink(value: movie) {
                                 PosterCard(movie: movie)

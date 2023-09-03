@@ -38,7 +38,7 @@ struct Person: Codable, Identifiable, Hashable {
     }
     
     var movieCast: [Movie]? {
-        movieCredits?.cast
+        movieCredits?.cast.sorted(by: { $0.voteCount > $1.voteCount })
     }
     
     var biographyText: String {
