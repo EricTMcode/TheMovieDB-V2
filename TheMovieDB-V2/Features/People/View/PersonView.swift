@@ -32,9 +32,6 @@ struct PersonView: View {
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-//            PersonView(id: 2152678)
-//            PersonView(id: 1323109)
-//            PersonView(id: 1087262)
             PersonView(id: 54693)
         }
     }
@@ -49,7 +46,9 @@ struct PersonDetailView: View {
             VStack(alignment: .leading, spacing: 20) {
                 PersonPictureView
                 PersonInfoView
+                Divider()
                 PersonBiographyView
+                Divider()
                 PersonFilmographyView
             }
             .padding(.horizontal)
@@ -102,16 +101,17 @@ struct PersonDetailView: View {
     private var PersonBiographyView: some View {
         VStack(alignment: .leading, spacing: 12) {
             TextDetailTitle(text: "Biography")
-            VStack(alignment: .leading) {
+            VStack(alignment: .trailing) {
                 Text(person.biographyText)
-                    .lineLimit(showFullDescription ? nil : 4)
+                    .lineLimit(showFullDescription ? nil : 8)
                 if person.biographyText.count > 190 {
-                    Button {
-                        showFullDescription.toggle()
-                    } label: {
-                        Text(showFullDescription ? "See Less..." : "Read more...")
-                            .padding(.vertical, -4)
-                    }
+                        Button {
+                            showFullDescription.toggle()
+                        } label: {
+                            Text(showFullDescription ? "See Less..." : "Read more...")
+                                .padding(.vertical, -2)
+                        }
+                    .tint(.primary)
                 }
             }
             .font(.callout)
