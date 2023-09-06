@@ -29,20 +29,7 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if vm.movie != nil {
-                    if favorites.contains(vm.movie!) {
-                        Button {
-                            favorites.remove(vm.movie!)
-                        } label: {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
-                        }
-                    } else {
-                        Button {
-                            favorites.add(vm.movie!)
-                        } label: {
-                            Image(systemName: "star")
-                        }
-                    }
+                    favoritesButton
                 }
             }
         }
@@ -61,6 +48,27 @@ struct DetailView_Previews: PreviewProvider {
         NavigationStack {
             DetailView(id: Movie.localMovie.id)
                 .environmentObject(FavoriteViewModel())
+        }
+    }
+}
+
+private extension DetailView {
+    
+    @ViewBuilder
+    var favoritesButton: some View {
+        if favorites.contains(vm.movie!) {
+            Button {
+                favorites.remove(vm.movie!)
+            } label: {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
+        } else {
+            Button {
+                favorites.add(vm.movie!)
+            } label: {
+                Image(systemName: "star")
+            }
         }
     }
 }

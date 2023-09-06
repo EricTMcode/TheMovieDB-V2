@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PosterCard: View {
-    @EnvironmentObject var favorites: FavoriteViewModel
     let movie: Movie
     
     var body: some View {
@@ -51,6 +50,5 @@ struct PosterCard_Previews: PreviewProvider {
     static var previews: some View {
         PosterCard(movie: Movie.localMovie)
             .frame(width: 90, height: 150)
-            .environmentObject(FavoriteViewModel())
     }
 }

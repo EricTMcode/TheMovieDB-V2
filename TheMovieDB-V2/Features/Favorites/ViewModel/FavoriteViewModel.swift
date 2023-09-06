@@ -8,7 +8,7 @@
 import Foundation
 
 class FavoriteViewModel: ObservableObject {
-    @Published var favoriteMovies: [Movie]
+    @Published private(set) var favoriteMovies: [Movie]
     
     let savePath = FileManager.documentsDirectory.appending(path: "favoriteMovie")
     
