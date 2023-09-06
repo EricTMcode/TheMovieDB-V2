@@ -36,14 +36,23 @@ class FavoriteViewModel: ObservableObject {
         save()
     }
     
-    func contains(_ movie: Movie) -> Bool {
-        favoriteMovies.contains(where: { $0.id == movie.id })
-    }
     
     func remove(_ movie: Movie) {
         if let indexToDelete = favoriteMovies.firstIndex(where: { $0.id == movie.id }) {
             favoriteMovies.remove(at: indexToDelete)
             save()
+        }
+    }
+    
+    func contains(_ movie: Movie) -> Bool {
+        favoriteMovies.contains(where: { $0.id == movie.id })
+    }
+    
+    func toogleFav(_ movie: Movie) {
+        if contains(movie) {
+            remove(movie)
+        } else {
+            add(movie)
         }
     }
 }

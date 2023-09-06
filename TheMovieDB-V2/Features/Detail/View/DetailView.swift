@@ -54,21 +54,11 @@ struct DetailView_Previews: PreviewProvider {
 
 private extension DetailView {
     
-    @ViewBuilder
     var favoritesButton: some View {
-        if favorites.contains(vm.movie!) {
-            Button {
-                favorites.remove(vm.movie!)
-            } label: {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
+        Image(systemName: favorites.contains(vm.movie!) ? "star.fill" : "star")
+            .foregroundColor(.yellow)
+            .onTapGesture {
+                favorites.toogleFav(vm.movie!)
             }
-        } else {
-            Button {
-                favorites.add(vm.movie!)
-            } label: {
-                Image(systemName: "star")
-            }
-        }
     }
 }
