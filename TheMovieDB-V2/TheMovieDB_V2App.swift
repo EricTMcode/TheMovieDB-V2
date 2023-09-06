@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct TheMovieDB_V2App: App {
+    @StateObject var favorites = FavoriteViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(favorites)
         }
     }
 }

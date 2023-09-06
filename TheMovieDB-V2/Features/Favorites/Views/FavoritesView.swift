@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @EnvironmentObject var vm: FavoriteViewModel
+    
     var body: some View {
-        Text("Favorites View")
+        VStack {
+            List {
+                ForEach(vm.favoriteMovies) { movie in
+                    Text(movie.title)
+                }
+            }
+        }
     }
 }
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
+            .environmentObject(FavoriteViewModel())
     }
 }

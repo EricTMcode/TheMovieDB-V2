@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var vm = DetailViewModel()
+    @EnvironmentObject var favorites: FavoriteViewModel
     let id: Int
     
     var body: some View {
@@ -27,10 +28,21 @@ struct DetailView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "star")
+                if vm.movie != nil {
+                    if favorites.contains(vm.movie!) {
+                        Button {
+                            favorites.remove(vm.movie!)
+                        } label: {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                        }
+                    } else {
+                        Button {
+                            favorites.add(vm.movie!)
+                        } label: {
+                            Image(systemName: "star")
+                        }
+                    }
                 }
             }
         }
@@ -48,6 +60,7 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             DetailView(id: Movie.localMovie.id)
+                .environmentObject(FavoriteViewModel())
         }
     }
 }
