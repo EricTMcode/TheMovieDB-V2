@@ -32,6 +32,7 @@ struct PosterCard: View {
         } else {
             HStack(alignment: .top, spacing: 16) {
                 imageView
+                    .frame(width: 61, height: 92)
                 textView
             }
         }
