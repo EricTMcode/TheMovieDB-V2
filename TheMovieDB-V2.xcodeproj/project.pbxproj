@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074B0C2E2AAA0AAA006547D6 /* FavoritesEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B0C2D2AAA0AAA006547D6 /* FavoritesEmptyView.swift */; };
 		07540FE02AA6163800194B3D /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07540FDF2AA6163800194B3D /* FavoriteViewModel.swift */; };
 		07540FE22AA616C900194B3D /* FileManager+Exentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07540FE12AA616C900194B3D /* FileManager+Exentsion.swift */; };
 		0755686F2A71392500617D64 /* TheMovieDB_V2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755686E2A71392500617D64 /* TheMovieDB_V2App.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		074B0C2D2AAA0AAA006547D6 /* FavoritesEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesEmptyView.swift; sourceTree = "<group>"; };
 		07540FDF2AA6163800194B3D /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		07540FE12AA616C900194B3D /* FileManager+Exentsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Exentsion.swift"; sourceTree = "<group>"; };
 		0755686B2A71392500617D64 /* TheMovieDB-V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheMovieDB-V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				075568BE2A7BB21000617D64 /* FavoritesView.swift */,
+				074B0C2D2AAA0AAA006547D6 /* FavoritesEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				075568832A71401E00617D64 /* Constants.swift in Sources */,
 				0755689C2A7296A600617D64 /* PosterCard.swift in Sources */,
 				075568B82A7546DD00617D64 /* TextDetailTitle.swift in Sources */,
+				074B0C2E2AAA0AAA006547D6 /* FavoritesEmptyView.swift in Sources */,
 				075568A52A73EB0300617D64 /* BackdropCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,29 +12,35 @@ struct FavoritesView: View {
     @AppStorage("sortOption") private var sortOption: SortOption = .date
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                List {
-                    ForEach(filteredMovies) { movie in
-                        NavigationLink(value: movie) {
-                            PosterCard(movie: movie, orientationType: .horizontal)
+        VStack {
+            if !vm.favoriteMovies.isEmpty {
+                NavigationStack {
+                VStack {
+                    List {
+                        ForEach(filteredMovies) { movie in
+                            NavigationLink(value: movie) {
+                                PosterCard(movie: movie, orientationType: .horizontal)
+                            }
                         }
                     }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
-            }
-            .navigationTitle("Favorites")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    sortButton
+                .navigationTitle("Favorites")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        sortButton
+                    }
                 }
-            }
-            .confirmationDialog("Sort by...", isPresented: $vm.isShowingSortOptions) {
-                confirmationButton
-            }
-            .navigationDestination(for: Movie.self) { movie in
-                DetailView(id: movie.id)
+                .confirmationDialog("Sort by...", isPresented: $vm.isShowingSortOptions) {
+                    confirmationButton
+                }
+                .navigationDestination(for: Movie.self) { movie in
+                    DetailView(id: movie.id)
+                }
+                }
+            } else {
+                FavoritesEmptyView()
             }
         }
     }
