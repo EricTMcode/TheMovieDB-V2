@@ -9,12 +9,13 @@ import SwiftUI
 
 struct FavoritesView: View {
     @EnvironmentObject var vm: FavoriteViewModel
+    @AppStorage("sortOption") private var sortOption: SortOption = .date
     
     var body: some View {
         NavigationStack {
             VStack {
                 List {
-                    ForEach(vm.filteredMovies) { movie in
+                    ForEach(filteredMovies) { movie in
                         NavigationLink(value: movie) {
                             PosterCard(movie: movie, orientationType: .horizontal)
                         }
@@ -58,7 +59,16 @@ private extension FavoritesView {
     
     @ViewBuilder
     var confirmationButton: some View {
-        Button("Name (A-Z)") { vm.sortOption = .name }
-        Button("Date (Newest first)") { vm.sortOption = .date }
+        Button("Name (A-Z)") { sortOption = .name }
+        Button("Date (Newest first)") { sortOption = .date }
+    }
+    
+    var filteredMovies: [Movie] {
+        switch sortOption {
+        case .name:
+            return vm.favoriteMovies.sorted { $0.title < $1.title }
+        case .date:
+            return vm.favoriteMovies.reversed()
+        }
     }
 }
