@@ -7,8 +7,14 @@
 
 import Foundation
 
+enum SortOption {
+    case name, date
+}
+
 class FavoriteViewModel: ObservableObject {
     @Published private(set) var favoriteMovies: [Movie]
+    @Published var sortOption: SortOption = .date
+    @Published var isShowingSortOptions = false
     
     let savePath = FileManager.documentsDirectory.appending(path: "favoriteMovie")
     
@@ -55,4 +61,14 @@ class FavoriteViewModel: ObservableObject {
             add(movie)
         }
     }
+    
+    var filteredMovies: [Movie] {
+        switch sortOption {
+        case .name:
+            return favoriteMovies.sorted { $0.title < $1.title }
+        case .date:
+            return favoriteMovies.reversed()
+        }
+    }
 }
+
