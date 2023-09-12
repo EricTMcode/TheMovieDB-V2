@@ -136,18 +136,18 @@ struct MovieDetailView: View {
     private var MovieDetailRecommendationsView: some View {
         VStack(alignment: .leading, spacing: 15) {
             if movie.recommendationsVideo != nil {
-                TextDetailTitle(text: "Recommendations")
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(alignment: .top, spacing: 10) {
-                        ForEach(movie.recommendationsVideo!) { movie in
-                            NavigationLink(value: movie) {
-                                PosterCard(movie: movie)
-                                    .frame(width: 90, height: 170)
+                    TextDetailTitle(text: "Recommendations")
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(alignment: .top, spacing: 10) {
+                            ForEach(movie.recommendationsVideo!) { movie in
+                                NavigationLink(value: movie) {
+                                    PosterCard(movie: movie)
+                                        .frame(width: 90, height: 170)
+                                }
+                                .buttonStyle(.plain)
                             }
-                            .buttonStyle(.plain)
                         }
                     }
-                }
             }
         }
     }

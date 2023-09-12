@@ -78,7 +78,7 @@ struct Movie: Codable, Hashable, Identifiable {
     }
     
     var recommendationsVideo: [Movie]? {
-        recommendations?.results
+        return (recommendations?.results.isEmpty)! ? nil : recommendations?.results
     }
 }
 

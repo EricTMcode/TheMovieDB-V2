@@ -13,7 +13,7 @@ enum SortOption: Int {
 }
 
 class FavoriteViewModel: ObservableObject {
-    @Published private(set) var favoriteMovies: [Movie]
+    @Published private(set) var favoriteMovies: [Movie] = []
     @Published var isShowingSortOptions = false
     
     let savePath = FileManager.documentsDirectory.appending(path: "favoriteMovie")

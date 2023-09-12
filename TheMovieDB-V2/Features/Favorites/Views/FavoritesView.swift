@@ -80,7 +80,7 @@ private extension FavoritesView {
         Button {
             vm.isShowingSortOptions.toggle()
         } label: {
-            Label("Sort", systemImage: "arrow.up.arrow.down")
+            Image(systemName: sortOption == .date ? "arrow.up.arrow.down" : "textformat.abc")
         }
     }
     
