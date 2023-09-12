@@ -36,7 +36,17 @@ private extension FavoritesView {
                         NavigationLink(value: movie) {
                             PosterCard(movie: movie, orientationType: .horizontal)
                         }
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                withAnimation {
+                                    vm.remove(movie)
+                                }
+                            } label: {
+                                Image(systemName: "trash")
+                            }
+                        }
                     }
+                    
                 }
                 .listStyle(.plain)
             .navigationTitle("Favorites")
