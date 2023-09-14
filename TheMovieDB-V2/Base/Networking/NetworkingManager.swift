@@ -51,8 +51,8 @@ extension NetworkingManager.NetworkingError {
         switch self {
         case .invalidUrl:
             return "URL isn't valid"
-        case .invalidStatusCode:
-            return "Status code falls into the wrong range"
+        case .invalidStatusCode(let statusCode):
+            return "Status code falls into the wrong range: \(statusCode)"
         case .invalidData:
             return "Response data is invalid"
         case .failedToDecode:

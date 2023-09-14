@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07131A282AB0964800393F14 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07131A272AB0964800393F14 /* Router.swift */; };
 		07540FE02AA6163800194B3D /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07540FDF2AA6163800194B3D /* FavoriteViewModel.swift */; };
 		07540FE22AA616C900194B3D /* FileManager+Exentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07540FE12AA616C900194B3D /* FileManager+Exentsion.swift */; };
 		0755686F2A71392500617D64 /* TheMovieDB_V2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755686E2A71392500617D64 /* TheMovieDB_V2App.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07131A272AB0964800393F14 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		07540FDF2AA6163800194B3D /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		07540FE12AA616C900194B3D /* FileManager+Exentsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Exentsion.swift"; sourceTree = "<group>"; };
 		0755686B2A71392500617D64 /* TheMovieDB-V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheMovieDB-V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,10 +151,10 @@
 		0755687C2A713E3000617D64 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				07DCDF132AA20AD800410692 /* People */,
 				0755688B2A71466600617D64 /* Home */,
 				075568A82A75360A00617D64 /* Detail */,
 				075568B92A7BB1AA00617D64 /* Tv */,
+				07DCDF132AA20AD800410692 /* People */,
 				075568BA2A7BB1C000617D64 /* Favorites */,
 				075568BB2A7BB1C500617D64 /* Search */,
 			);
@@ -185,6 +187,7 @@
 			children = (
 				075568822A71401E00617D64 /* Constants.swift */,
 				075568B02A753BAC00617D64 /* GeometryHelper.swift */,
+				07131A272AB0964800393F14 /* Router.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				07DCDF1C2AA20D7100410692 /* PersonViewModel.swift in Sources */,
 				07DCDF1E2AA20FC100410692 /* PersonView.swift in Sources */,
 				075568B32A75449800617D64 /* Bundle+Extension.swift in Sources */,
+				07131A282AB0964800393F14 /* Router.swift in Sources */,
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
 				075568872A7141D800617D64 /* NetworkingManager.swift in Sources */,
 				075568B12A753BAC00617D64 /* GeometryHelper.swift in Sources */,

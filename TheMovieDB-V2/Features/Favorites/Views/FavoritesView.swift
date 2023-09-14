@@ -31,24 +31,24 @@ private extension FavoritesView {
     
     var favoritesListView: some View {
         NavigationStack {
-                List {
-                    ForEach(filteredMovies) { movie in
-                        NavigationLink(value: movie) {
-                            PosterCard(movie: movie, orientationType: .horizontal)
-                        }
-                        .swipeActions {
-                            Button(role: .destructive) {
-                                withAnimation {
-                                    vm.remove(movie)
-                                }
-                            } label: {
-                                Image(systemName: "trash")
+            List {
+                ForEach(filteredMovies) { movie in
+                    NavigationLink(value: movie) {
+                        PosterCard(movie: movie, orientationType: .horizontal)
+                    }
+                    .swipeActions {
+                        Button(role: .destructive) {
+                            withAnimation {
+                                vm.remove(movie)
                             }
+                        } label: {
+                            Image(systemName: "trash")
                         }
                     }
-                    
                 }
-                .listStyle(.plain)
+                
+            }
+            .listStyle(.plain)
             .navigationTitle("Favorites")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

@@ -10,11 +10,13 @@ import SwiftUI
 @main
 struct TheMovieDB_V2App: App {
     @StateObject var favorites = FavoriteViewModel()
+    @StateObject var router = Router()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(favorites)
+                .environmentObject(router)
         }
     }
 }
