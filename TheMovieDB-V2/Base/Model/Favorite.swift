@@ -1,22 +1,23 @@
 //
-//  FavoriteViewModel.swift
+//  Favorite.swift
 //  TheMovieDB-V2
 //
-//  Created by Eric on 04/09/2023.
+//  Created by Eric on 27/09/2023.
 //
 
 import Foundation
 
-//enum SortOption: Int {
-//    case name = 1
-//    case date = 2
-//}
+enum SortOption: Int {
+    case name = 1
+    case date = 2
+}
 
-class FavoriteViewModel: ObservableObject {
-    @Published private(set) var favoriteMovies: [Movie] = []
-    @Published var isShowingSortOptions = false
+final class Favorite: ObservableObject {
     
-    let savePath = FileManager.documentsDirectory.appending(path: "favoriteMovie")
+    @Published private(set) var favoriteMovies: [Movie] = []
+    
+    let savePath = FileManager.documentsDirectory.appending(path: "favoritesMovie")
+    @Published var isShowingSortOptions = false
     
     init() {
         if let data = try? Data(contentsOf: savePath) {
@@ -25,6 +26,7 @@ class FavoriteViewModel: ObservableObject {
                 return
             }
         }
+        
         favoriteMovies = []
     }
     
@@ -42,7 +44,6 @@ class FavoriteViewModel: ObservableObject {
         save()
     }
     
-    
     func remove(_ movie: Movie) {
         if let indexToDelete = favoriteMovies.firstIndex(where: { $0.id == movie.id }) {
             favoriteMovies.remove(at: indexToDelete)
@@ -50,11 +51,16 @@ class FavoriteViewModel: ObservableObject {
         }
     }
     
+    func delete(at offsets: IndexSet) {
+        favoriteMovies.remove(atOffsets: offsets)
+        save()
+    }
+    
     func contains(_ movie: Movie) -> Bool {
         favoriteMovies.contains(where: { $0.id == movie.id })
     }
     
-    func toogleFav(_ movie: Movie) {
+    func toggleFav(_ movie: Movie) {
         if contains(movie) {
             remove(movie)
         } else {
@@ -62,4 +68,3 @@ class FavoriteViewModel: ObservableObject {
         }
     }
 }
-

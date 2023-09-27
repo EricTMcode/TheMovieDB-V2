@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var vm = DetailViewModel()
-    @EnvironmentObject var favorites: FavoriteViewModel
+    @EnvironmentObject var favorite: Favorite
     let id: Int
     
     var body: some View {
@@ -47,7 +47,7 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             DetailView(id: Movie.localMovie.id)
-                .environmentObject(FavoriteViewModel())
+                .environmentObject(Favorite())
         }
     }
 }
@@ -55,10 +55,10 @@ struct DetailView_Previews: PreviewProvider {
 private extension DetailView {
     
     var favoritesButton: some View {
-        Image(systemName: favorites.contains(vm.movie!) ? "star.fill" : "star")
+        Image(systemName: favorite.contains(vm.movie!) ? "star.fill" : "star")
             .foregroundColor(.yellow)
             .onTapGesture {
-                favorites.toogleFav(vm.movie!)
+                favorite.toggleFav(vm.movie!)
             }
     }
 }

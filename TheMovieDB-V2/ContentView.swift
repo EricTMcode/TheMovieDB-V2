@@ -20,7 +20,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("TV Show", systemImage: "sparkles.tv")
                 }
-            FavoritesView()
+            FavoriteView()
                 .tabItem {
                     Label("Favorites", systemImage: "star")
                 }
@@ -41,6 +41,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(FavoriteViewModel())
+            .environmentObject(Favorite())
     }
 }
