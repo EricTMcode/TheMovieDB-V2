@@ -51,11 +51,6 @@ final class Favorite: ObservableObject {
         }
     }
     
-    func delete(at offsets: IndexSet) {
-        favoriteMovies.remove(atOffsets: offsets)
-        save()
-    }
-    
     func contains(_ movie: Movie) -> Bool {
         favoriteMovies.contains(where: { $0.id == movie.id })
     }

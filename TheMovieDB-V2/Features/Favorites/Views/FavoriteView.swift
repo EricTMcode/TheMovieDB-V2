@@ -14,9 +14,7 @@ struct FavoriteView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack {
-                    favoriteListView
-                }
+                favoriteListView
                 
                 if favorite.favoriteMovies.isEmpty {
                     favoriteEmptyView
@@ -34,6 +32,9 @@ struct FavoriteView: View {
                     }
                 }
             }
+            .confirmationDialog("Sort by...", isPresented: $favorite.isShowingSortOptions) {
+                confirmationButton
+            }
         }
     }
 }
@@ -46,13 +47,23 @@ struct FavoriteView: View {
 private extension FavoriteView {
     
     var favoriteListView: some View {
-        List {
-            ForEach(favorite.favoriteMovies) { movie in
-                NavigationLink(value: movie) {
-                    PosterCard(movie: movie, orientationType: .horizontal)
+        VStack {
+            List {
+                ForEach(filteredMovies) { movie in
+                    NavigationLink(value: movie) {
+                        PosterCard(movie: movie, orientationType: .horizontal)
+                    }
+                    .swipeActions {
+                        Button(role: .destructive) {
+                            withAnimation {
+                                favorite.remove(movie)
+                            }
+                        } label: {
+                            Image(systemName: "trash" )
+                        }
+                    }
                 }
             }
-            .onDelete(perform: favorite.delete)
         }
         .listStyle(.plain)
     }
@@ -73,6 +84,21 @@ private extension FavoriteView {
             favorite.isShowingSortOptions.toggle()
         } label: {
             Image(systemName: sortOption == .date ? "arrow.up.arrow.down" : "textformat.abc")
+        }
+    }
+    
+    @ViewBuilder
+    var confirmationButton: some View {
+        Button("Name (A-Z)") { sortOption = .name }
+        Button("Date (Newest first)") { sortOption = .date }
+    }
+    
+    var filteredMovies: [Movie] {
+        switch sortOption {
+        case .name:
+            favorite.favoriteMovies.sorted { $0.title < $1.title }
+        case .date:
+            favorite.favoriteMovies.reversed()
         }
     }
 }
