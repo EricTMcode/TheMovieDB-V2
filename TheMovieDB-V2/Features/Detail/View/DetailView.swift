@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @StateObject private var vm = DetailViewModel()
     @EnvironmentObject var favorite: Favorite
+    @EnvironmentObject var router: Router
     let id: Int
     
     var body: some View {
@@ -21,13 +22,22 @@ struct DetailView: View {
         .task {
             await vm.fetchDetails(for: id)
         }
+        .navigationBarBackButtonHidden()
         .overlay {
             if vm.viewState == .loading {
                 ProgressView()
             }
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    router.resetMoviePath()
+                } label: {
+                    returnButton
+                }
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
                 if vm.movie != nil {
                     favoritesButton
                 }
@@ -60,5 +70,12 @@ private extension DetailView {
             .onTapGesture {
                 favorite.toggleFav(vm.movie!)
             }
+    }
+    
+    var returnButton: some View {
+        Image(systemName: "chevron.left")
+            .font(.title3)
+            .foregroundStyle(.orange)
+            .shadow(radius: 20)
     }
 }

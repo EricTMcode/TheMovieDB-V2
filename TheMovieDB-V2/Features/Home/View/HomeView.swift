@@ -9,9 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var vm = HomeViewModel()
+    @EnvironmentObject var router: Router
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $router.moviePath) {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 10) {
                     BackdropCarouselView(movies: vm.nowPlaying)
@@ -82,5 +83,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+        
+            .environmentObject(Router())
     }
 }
