@@ -58,7 +58,7 @@ extension NetworkingManager.NetworkingError {
         case .failedToDecode:
             return "Failed to decode"
         case .custom(let err):
-            return "Something went wrong \(err.localizedDescription)"
+            return "\(err.localizedDescription)"
         }
     }
 }

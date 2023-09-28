@@ -38,13 +38,17 @@ struct HomeView: View {
                     ProgressView()
                 }
             }
-            .alert(isPresented: $vm.hasError, error: vm.error) {
+            .alert("Application Error", isPresented: $vm.hasError, presenting: vm.error) { _ in
                 Button("Retry") {
                     Task {
                         await vm.populateMovies()
                     }
                 }
+            } message: { error in
+                Text(error.errorDescription ?? "Try again later")
             }
+            
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {

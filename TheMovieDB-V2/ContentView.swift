@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var favorites: FavoriteViewModel
+    @EnvironmentObject var favorite: Favorite
     
     var body: some View {
         TabView {
