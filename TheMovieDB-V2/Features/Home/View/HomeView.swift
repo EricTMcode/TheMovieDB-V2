@@ -61,10 +61,11 @@ struct HomeView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "gear")
-                        .foregroundColor(.orange)
+                    NavigationLink(value: "SettingsView") {
+                        Image(systemName: "gear")
+                            .foregroundColor(.orange)
+                    }
                 }
-                
             }
             .navigationDestination(for: Movie.self) { movie in
                 DetailView(id: movie.id)
@@ -76,6 +77,9 @@ struct HomeView: View {
             .navigationDestination(for: MovieCast.self) { cast in
                 PersonView(id: cast.id)
             }
+            .navigationDestination(for: String.self) { i in
+                SettingsView()
+            }
         }
     }
 }
@@ -83,7 +87,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-    
+        
             .environmentObject(Router())
     }
 }

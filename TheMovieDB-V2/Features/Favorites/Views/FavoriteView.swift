@@ -9,10 +9,11 @@ import SwiftUI
 
 struct FavoriteView: View {
     @EnvironmentObject var favorite: Favorite
+    @EnvironmentObject var router: Router
     @AppStorage("sortOption") private var sortOption: SortOption = .date
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $router.favoritesPath) {
             ZStack {
                 favoriteListView
                 
@@ -42,6 +43,7 @@ struct FavoriteView: View {
 #Preview {
     FavoriteView()
         .environmentObject(Favorite())
+        .environmentObject(Router())
 }
 
 private extension FavoriteView {

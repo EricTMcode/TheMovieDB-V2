@@ -12,4 +12,7 @@ enum Constants {
     static let imgUrl = "https://image.tmdb.org/t/p/w500/"
     static let imgOriginalUrl = "https://image.tmdb.org/t/p/original/"
     static let language = "en-US"
+    
+    static let twitter = "https://twitter.com/erictmcode"
+    static let email = "mailto:ebagnaro@gmail.com"
 }
