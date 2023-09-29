@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @AppStorage("interfaceTheme") private var interfaceTheme: InterfaceTheme = .auto
     
     var body: some View {
             Form {
                 Section {
-                    
+                    Picker("Theme", selection: $interfaceTheme) {
+                        ForEach(InterfaceTheme.allCases, id: \.self) { theme in
+                            Text(theme.name).tag(theme)
+                        }
+                    }
                 } header: {
                     Text("Display")
                 } footer: {
