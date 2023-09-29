@@ -58,6 +58,7 @@ struct DetailView_Previews: PreviewProvider {
         NavigationStack {
             DetailView(id: Movie.localMovie.id)
                 .environmentObject(Favorite())
+                .environmentObject(Router())
         }
     }
 }
