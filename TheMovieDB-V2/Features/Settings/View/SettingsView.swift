@@ -35,9 +35,13 @@ struct SettingsView: View {
                 .font(.system(size: 16, weight: .medium))
             }
             .navigationTitle("Settings")
+            .tint(.accentColor)
     }
 }
 
 #Preview {
-    SettingsView()
+    NavigationStack {
+        SettingsView()
+            .preferredColorScheme(.dark)
+    }
 }

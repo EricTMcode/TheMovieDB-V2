@@ -13,6 +13,7 @@ enum Endpoint {
     case topRated(page: Int)
     case detail(id: Int)
     case person(id: Int)
+    case search(query: String)
 }
 
 extension Endpoint {
@@ -37,12 +38,14 @@ extension Endpoint {
             return "/3/movie/\(id)"
         case .person(let id):
             return "/3/person/\(id)"
+        case .search:
+            return "/3/search/movie"
         }
     }
     
     var methodType: MethodType {
         switch self {
-        case .nowPlaying, .upcoming, .topRated, .detail, .person:
+        case .nowPlaying, .upcoming, .topRated, .detail, .person, .search:
             return .GET
         }
     }
@@ -59,6 +62,8 @@ extension Endpoint {
             return ["append_to_response": "videos,credits,recommendations"]
         case .person:
             return ["append_to_response": "movie_credits"]
+        case .search(let query):
+            return ["query": query]
         }
     }
 }

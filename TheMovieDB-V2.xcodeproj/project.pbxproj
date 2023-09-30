@@ -40,6 +40,8 @@
 		078A91D12AC705C200F39A37 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A91D02AC705C200F39A37 /* SettingsView.swift */; };
 		078A91D32AC7082300F39A37 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A91D22AC7082300F39A37 /* Theme.swift */; };
 		078A91D52AC70B0600F39A37 /* InterfaceTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A91D42AC70B0600F39A37 /* InterfaceTheme.swift */; };
+		078A91D92AC852F500F39A37 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A91D82AC852F500F39A37 /* SearchViewModel.swift */; };
+		078A91DB2AC85E1B00F39A37 /* EmptyPlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A91DA2AC85E1B00F39A37 /* EmptyPlaceHolderView.swift */; };
 		07DCDF102A9F820200410692 /* movie_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 07DCDF0F2A9F820200410692 /* movie_info.json */; };
 		07DCDF122AA0BD9D00410692 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DCDF112AA0BD9D00410692 /* MovieDetailView.swift */; };
 		07DCDF182AA20B1600410692 /* movie_person.json in Resources */ = {isa = PBXBuildFile; fileRef = 07DCDF172AA20B1600410692 /* movie_person.json */; };
@@ -83,6 +85,8 @@
 		078A91D02AC705C200F39A37 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		078A91D22AC7082300F39A37 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		078A91D42AC70B0600F39A37 /* InterfaceTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceTheme.swift; sourceTree = "<group>"; };
+		078A91D82AC852F500F39A37 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		078A91DA2AC85E1B00F39A37 /* EmptyPlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlaceHolderView.swift; sourceTree = "<group>"; };
 		07DCDF0F2A9F820200410692 /* movie_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie_info.json; sourceTree = "<group>"; };
 		07DCDF112AA0BD9D00410692 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		07DCDF172AA20B1600410692 /* movie_person.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movie_person.json; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 			children = (
 				0755689E2A72970400617D64 /* RectangleView.swift */,
 				075568B72A7546DD00617D64 /* TextDetailTitle.swift */,
+				078A91DA2AC85E1B00F39A37 /* EmptyPlaceHolderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,7 +330,8 @@
 		075568BB2A7BB1C500617D64 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				075568C02A7BB21800617D64 /* SearchView.swift */,
+				078A91D62AC851EE00F39A37 /* View */,
+				078A91D72AC851F700F39A37 /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -344,6 +350,22 @@
 				078A91D02AC705C200F39A37 /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		078A91D62AC851EE00F39A37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				075568C02A7BB21800617D64 /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		078A91D72AC851F700F39A37 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				078A91D82AC852F500F39A37 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		07DCDF132AA20AD800410692 /* People */ = {
@@ -454,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07DCDF1A2AA20B4E00410692 /* Person.swift in Sources */,
+				078A91D92AC852F500F39A37 /* SearchViewModel.swift in Sources */,
 				075568AD2A75368300617D64 /* DetailViewModel.swift in Sources */,
 				075568AF2A75382800617D64 /* DetailView.swift in Sources */,
 				078A91D52AC70B0600F39A37 /* InterfaceTheme.swift in Sources */,
@@ -478,6 +501,7 @@
 				07DCDF1E2AA20FC100410692 /* PersonView.swift in Sources */,
 				075568B32A75449800617D64 /* Bundle+Extension.swift in Sources */,
 				078A91CD2AC7030E00F39A37 /* NavigationController.swift in Sources */,
+				078A91DB2AC85E1B00F39A37 /* EmptyPlaceHolderView.swift in Sources */,
 				07131A282AB0964800393F14 /* Router.swift in Sources */,
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
 				078A91D12AC705C200F39A37 /* SettingsView.swift in Sources */,

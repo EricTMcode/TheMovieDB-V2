@@ -71,14 +71,7 @@ private extension FavoriteView {
     }
     
     var favoriteEmptyView: some View {
-        VStack(spacing: 10) {
-            Image(systemName: "film")
-                .font(.system(size: 48))
-            Text("No Favorite Movies")
-            Text("You can add movie by pressing the star on the movie*")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
+        EmptyPlaceHolderView(text: "No Favorite Movies", subText: "You can add movie by pressing the star on the movie*", image: "film")
     }
     
     var sortButton: some View {

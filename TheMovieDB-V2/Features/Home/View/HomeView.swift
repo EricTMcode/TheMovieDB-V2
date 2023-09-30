@@ -48,8 +48,6 @@ struct HomeView: View {
             } message: { error in
                 Text(error.errorDescription ?? "Try again later")
             }
-            
-            
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -63,7 +61,7 @@ struct HomeView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(value: "SettingsView") {
                         Image(systemName: "gear")
-                            .foregroundColor(.orange)
+                            .foregroundColor(.accentColor)
                     }
                 }
             }
@@ -87,7 +85,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-        
             .environmentObject(Router())
     }
 }
