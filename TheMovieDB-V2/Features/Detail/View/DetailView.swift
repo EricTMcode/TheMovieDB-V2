@@ -31,8 +31,7 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    router.resetMoviePath()
-                    router.resetFavoritesPath()
+                    router.resetAllPath()
                 } label: {
                     returnButton
                 }

@@ -9,18 +9,21 @@ import SwiftUI
 
 struct SearchView: View {
     @StateObject var vm = SearchViewModel()
+    @EnvironmentObject var router: Router
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $router.searchPath) {
             List {
                 if vm.movies != nil {
                     ForEach(vm.movies!) { movie in
-                        PosterCard(movie: movie, orientationType: .horizontal)
+                        NavigationLink(value: movie) {
+                            PosterCard(movie: movie, orientationType: .horizontal)
+                        }
                     }
                 }
             }
-            .listStyle(.plain)
             .navigationTitle("Search")
+            .listStyle(.plain)
             .searchable(text: $vm.query, prompt: "Search movies")
             .onAppear { vm.startObserve() }
             .overlay(overlayView)
@@ -28,6 +31,12 @@ struct SearchView: View {
                 Button("OK") {}
             } message: { error in
                 Text(error.errorDescription ?? "Try again later")
+            }
+            .navigationDestination(for: Movie.self) { movie in
+                DetailView(id: movie.id)
+            }
+            .navigationDestination(for: MovieCast.self) { cast in
+                PersonView(id: cast.id)
             }
         }
     }
@@ -55,5 +64,8 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
+            .environmentObject(Favorite())
+            .environmentObject(Router())
+        
     }
 }

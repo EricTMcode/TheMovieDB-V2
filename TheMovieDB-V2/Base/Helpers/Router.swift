@@ -11,6 +11,7 @@ class Router: ObservableObject {
     
     @Published var moviePath = NavigationPath()
     @Published var favoritesPath = NavigationPath()
+    @Published var searchPath = NavigationPath()
     
     func resetMoviePath() {
         moviePath = NavigationPath()
@@ -18,5 +19,15 @@ class Router: ObservableObject {
     
     func resetFavoritesPath() {
         favoritesPath = NavigationPath()
+    }
+    
+    func resetSearchPath() {
+        searchPath = NavigationPath()
+    }
+    
+    func resetAllPath() {
+        resetMoviePath()
+        resetFavoritesPath()
+        resetSearchPath()
     }
 }
