@@ -16,7 +16,7 @@ enum InterfaceTheme: Int, CaseIterable, Identifiable {
     var name: String {
         switch self {
         case .auto:
-            return String("Auto")
+            return String("System")
         case .light:
             return String("Light")
         case .dark:

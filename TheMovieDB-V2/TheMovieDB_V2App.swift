@@ -18,7 +18,7 @@ struct TheMovieDB_V2App: App {
             ContentView()
                 .environmentObject(favorite)
                 .environmentObject(router)
-                .preferredColorScheme(interfaceTheme == .light ? .light : interfaceTheme == .dark ? .dark : nil)
+                .preferredColorScheme(interfaceTheme == .auto ? nil : (interfaceTheme == .dark ? .dark : .light))
         }
     }
 }

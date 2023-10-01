@@ -16,6 +16,7 @@ final class HomeViewModel: ObservableObject {
     @Published private(set) var viewState: ViewState?
     @Published var hasError = false
     @Published var hasAppeared = false
+    @Published var isShowingSettings = false
     
     private var page = 1
     private var totalPages: Int?

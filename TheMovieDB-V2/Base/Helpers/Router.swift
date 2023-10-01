@@ -14,15 +14,21 @@ class Router: ObservableObject {
     @Published var searchPath = NavigationPath()
     
     func resetMoviePath() {
-        moviePath = NavigationPath()
+        if moviePath.count > 0 {
+            moviePath.removeLast()
+        }
     }
     
     func resetFavoritesPath() {
-        favoritesPath = NavigationPath()
+        if favoritesPath.count > 0 {
+            favoritesPath.removeLast()
+        }
     }
     
     func resetSearchPath() {
-        searchPath = NavigationPath()
+        if searchPath.count > 0 {
+            searchPath.removeLast()
+        }
     }
     
     func resetAllPath() {
