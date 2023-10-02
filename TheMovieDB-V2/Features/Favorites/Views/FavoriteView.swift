@@ -26,6 +26,9 @@ struct FavoriteView: View {
             .navigationDestination(for: Movie.self) { movie in
                 DetailView(id: movie.id)
             }
+            .navigationDestination(for: MovieCast.self) { cast in
+                PersonView(id: cast.id)
+            }
             .toolbar {
                 if !favorite.favoriteMovies.isEmpty {
                     ToolbarItem(placement: .topBarTrailing) {
