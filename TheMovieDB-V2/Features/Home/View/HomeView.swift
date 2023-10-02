@@ -28,10 +28,6 @@ struct HomeView: View {
             }
             .padding([.top, .bottom])
             .navigationTitle("Welcome")
-            .sheet(isPresented: $vm.isShowingSettings) {
-                SettingsView()
-                    .presentationDragIndicator(.visible)
-            }
             .task {
                 if !vm.hasAppeared {
                     await vm.populateMovies()
@@ -63,9 +59,7 @@ struct HomeView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        vm.isShowingSettings.toggle()
-                    } label: {
+                    NavigationLink(value: "SettingsView") {
                         Image(systemName: "gear")
                             .foregroundStyle(.orange)
                     }
@@ -80,6 +74,9 @@ struct HomeView: View {
             }
             .navigationDestination(for: MovieCast.self) { cast in
                 PersonView(id: cast.id)
+            }
+            .navigationDestination(for: String.self) { i in
+                SettingsView()
             }
         }
     }

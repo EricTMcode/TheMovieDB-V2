@@ -11,7 +11,6 @@ struct SettingsView: View {
     @AppStorage("interfaceTheme") private var interfaceTheme: InterfaceTheme = .auto
     
     var body: some View {
-        NavigationStack {
             Form {
                 Section {
                     Picker("Theme", selection: $interfaceTheme) {
@@ -39,8 +38,6 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .tint(.accentColor)
             .preferredColorScheme(interfaceTheme == .auto ? nil : (interfaceTheme == .dark ? .dark : .light))
-            
-        }
     }
 }
 
