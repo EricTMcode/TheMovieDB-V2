@@ -26,7 +26,7 @@ struct HomeView: View {
                     await vm.populateMovies()
                 }
             }
-            .padding([.top, .bottom])
+            .padding(.vertical)
             .navigationTitle("Welcome")
             .task {
                 if !vm.hasAppeared {
@@ -70,7 +70,6 @@ struct HomeView: View {
             }
             .navigationDestination(for: [Movie].self) { movies in
                 GridView(title: "Movies", movies: movies)
-                //                    PosterCarouselView(title: "Movie of the day", movies: movies)
             }
             .navigationDestination(for: MovieCast.self) { cast in
                 PersonView(id: cast.id)
