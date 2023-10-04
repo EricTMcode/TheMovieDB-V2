@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("interfaceTheme") private var interfaceTheme: InterfaceTheme = .auto
+    @EnvironmentObject var router: Router
     
     var body: some View {
             Form {
@@ -36,8 +37,18 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden()
             .tint(.accentColor)
             .preferredColorScheme(interfaceTheme == .auto ? nil : (interfaceTheme == .dark ? .dark : .light))
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        router.resetAllPath()
+                    } label: {
+                        returnButtonView()
+                    }
+                }
+            }
     }
 }
 
@@ -45,5 +56,6 @@ struct SettingsView: View {
     NavigationStack {
         SettingsView()
             .preferredColorScheme(.dark)
+            .environmentObject(Router())
     }
 }

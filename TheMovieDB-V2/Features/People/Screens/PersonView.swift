@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PersonView: View {
     @StateObject private var vm = PersonViewModel()
+    @EnvironmentObject var router: Router
     let id: Int
     
     
@@ -18,12 +19,23 @@ struct PersonView: View {
                 PersonDetailView(person: vm.person!)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
         .task {
             await vm.fetchPerson(for: id)
         }
         .overlay {
             if vm.viewState == .loading {
                 ProgressView()
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    router.resetAllPath()
+                } label: {
+                    returnButtonView()
+                }
             }
         }
     }
@@ -33,6 +45,7 @@ struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             PersonView(id: 54693)
+                .environmentObject(Router())
         }
     }
 }

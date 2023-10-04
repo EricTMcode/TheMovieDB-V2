@@ -26,7 +26,7 @@ struct HomeView: View {
                     await vm.populateMovies()
                 }
             }
-            .padding(.vertical)
+//            .padding(.vertical)
             .navigationTitle("Welcome")
             .task {
                 if !vm.hasAppeared {
