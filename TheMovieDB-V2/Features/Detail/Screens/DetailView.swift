@@ -33,7 +33,7 @@ struct DetailView: View {
                 Button {
                     router.resetAllPath()
                 } label: {
-                    returnButton
+                    returnButtonView()
                 }
             }
             
@@ -71,12 +71,5 @@ private extension DetailView {
             .onTapGesture {
                 favorite.toggleFav(vm.movie!)
             }
-    }
-    
-    var returnButton: some View {
-        Image(systemName: "chevron.left")
-            .font(.title3)
-            .foregroundStyle(.orange)
-            .shadow(radius: 20)
     }
 }

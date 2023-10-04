@@ -128,7 +128,7 @@ struct PersonDetailView: View {
                         ForEach(movieCast) { movie in
                             NavigationLink(value: movie) {
                                 PosterCard(movie: movie)
-                                    .frame(width: 90, height: 170)
+                                    .frame(width: 110, height: 200)
                             }
                             .buttonStyle(.plain)
                         }
