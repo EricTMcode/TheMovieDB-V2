@@ -17,7 +17,7 @@ struct GridView: View {
     var body: some View {
         Group {
             if isListViewActive {
-                gridListView
+                listView
             } else {
                 gridView
             }
@@ -48,17 +48,23 @@ private extension GridView {
         ScrollView {
             LazyVGrid(columns: gridLayout, spacing: 30) {
                 ForEach(movies) { movie in
-                    PosterCard(movie: movie)
+                    NavigationLink(value: movie) {
+                        PosterCard(movie: movie)
+                    }
+                    .buttonStyle(.plain)
                 }
             }
             .padding(20)
         }
     }
     
-    var gridListView: some View {
+    var listView: some View {
         List {
             ForEach(movies) { movie in
-                PosterCard(movie: movie, orientationType: .horizontal)
+                NavigationLink(value: movie) {
+                    PosterCard(movie: movie, orientationType: .horizontal)
+                }
+                .buttonStyle(.plain)
             }
         }
         .listStyle(.plain)
