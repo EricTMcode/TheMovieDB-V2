@@ -13,7 +13,7 @@ struct BackdropCarouselView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .top, spacing: 20) {
-                ForEach(movies) { movie in
+                ForEach(movies.shuffled()) { movie in
                     NavigationLink(value: movie) {
                         BackdropCard(movie: movie)
                             .frame(width: 332)
