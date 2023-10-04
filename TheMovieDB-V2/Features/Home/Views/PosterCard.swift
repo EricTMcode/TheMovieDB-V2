@@ -27,6 +27,7 @@ struct PosterCard: View {
         if case .vertical = orientationType {
             VStack(alignment: .leading) {
                 imageView
+                    .frame(width: 105)
                 textView
             }
         } else {
