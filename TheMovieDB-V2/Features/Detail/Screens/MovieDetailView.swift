@@ -31,6 +31,7 @@ struct MovieDetailView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     MovieDetailOverviewView
                     MovieDetailDistributionView
+                    MovieDetailTrailerView
                     MovieDetailRecommendationsView
                 }
                 .padding(.horizontal)
@@ -148,6 +149,19 @@ struct MovieDetailView: View {
                             }
                         }
                     }
+            }
+        }
+    }
+    
+    private var MovieDetailTrailerView: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            if movie.video != nil {
+            TextDetailTitle(text: "Trailer")
+                ForEach(movie.video!.prefix(1)) { video in
+                    VideoView(key: video.key)
+                        .aspectRatio(16/9,contentMode: .fit)
+                    
+                }
             }
         }
     }

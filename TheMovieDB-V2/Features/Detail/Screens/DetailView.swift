@@ -11,6 +11,7 @@ struct DetailView: View {
     @StateObject private var vm = DetailViewModel()
     @EnvironmentObject var favorite: Favorite
     @EnvironmentObject var router: Router
+    
     let id: Int
     
     var body: some View {
@@ -34,6 +35,16 @@ struct DetailView: View {
                     router.resetAllPath()
                 } label: {
                     returnButtonView()
+                }
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                if vm.movie != nil {
+                    ShareLink("Movie Recommendation",
+                              item: vm.movie!.title,
+                              subject: Text("Enjoy the Movie"),
+                              message: Text(vm.movie!.description),
+                              preview: SharePreview(Text("\(vm.movie!.title)")))
                 }
             }
             
@@ -67,7 +78,7 @@ private extension DetailView {
     
     var favoritesButton: some View {
         Image(systemName: favorite.contains(vm.movie!) ? "star.fill" : "star")
-            .foregroundColor(.yellow)
+            .foregroundColor(.orange)
             .onTapGesture {
                 favorite.toggleFav(vm.movie!)
             }

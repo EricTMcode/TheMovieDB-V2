@@ -5,7 +5,7 @@
 //  Created by Eric on 26/07/2023.
 //
 
-import Foundation
+import SwiftUI
 
 struct Movie: Codable, Hashable, Identifiable {
     let id: Int
@@ -20,6 +20,7 @@ struct Movie: Codable, Hashable, Identifiable {
     let genres: [MovieGenre]?
     let credits: MovieCredit?
     let recommendations: MovieRecommendationsResponse?
+    let videos: MovieVideoResponse?
     
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -80,6 +81,17 @@ struct Movie: Codable, Hashable, Identifiable {
     var recommendationsVideo: [Movie]? {
         return (recommendations?.results.isEmpty)! ? nil : recommendations?.results
     }
+    
+    var video: [MovieVideo]? {
+        videos?.results.filter { $0.type.lowercased() == "trailer" }
+    }
+    
+    var description: String {
+        """
+        
+        ★ \(voteAverage) - \(durationText) - \(yearText)
+        """
+    }
 }
 
 struct MovieGenre: Codable, Hashable, Identifiable {
@@ -104,4 +116,16 @@ struct MovieCast: Codable, Hashable, Identifiable {
 
 struct MovieRecommendationsResponse: Codable, Hashable {
     let results: [Movie]
+}
+
+struct MovieVideoResponse: Codable, Hashable {
+    let results: [MovieVideo]
+}
+
+struct MovieVideo: Codable, Identifiable, Hashable {
+    let id: String
+    let key: String
+    let name: String
+    let site: String
+    let type: String
 }
