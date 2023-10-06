@@ -34,7 +34,7 @@ struct PosterCarouselView: View {
                     ForEach(movies) { movie in
                         NavigationLink(value: movie) {
                             PosterCard(movie: movie)
-                                .frame(width: 105, height: 175)
+//                                .frame(width: 105, height: 175)
                         }
                         .buttonStyle(.plain)
                     }

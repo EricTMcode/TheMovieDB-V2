@@ -5,11 +5,12 @@
 //  Created by Eric on 26/07/2023.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkingManager {
     
     static let shared = NetworkingManager()
+    private let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     
@@ -33,6 +34,34 @@ final class NetworkingManager {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let decodedData = try decoder.decode(T.self, from: data)
         return decodedData
+    }
+    
+    
+    func downloadImage(fromURLString urlString: String, completed: @escaping(UIImage?)-> Void) {
+        
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = cache.object(forKey: cacheKey) {
+            completed(image)
+            return
+        }
+        
+        guard let url = URL(string: urlString) else {
+            completed(nil)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+        
+            guard let data = data, let image = UIImage(data: data) else {
+                completed(nil)
+                return
+            }
+            
+            self.cache.setObject(image, forKey: cacheKey)
+            completed(image)
+        }
+        task.resume()
     }
 }
 

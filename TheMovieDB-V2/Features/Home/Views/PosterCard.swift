@@ -27,13 +27,13 @@ struct PosterCard: View {
         if case .vertical = orientationType {
             VStack(alignment: .leading) {
                 imageView
-                    .frame(width: 105)
+//                    .frame(width: 105)
                 textView
             }
         } else {
             HStack(alignment: .top, spacing: 16) {
                 imageView
-                    .frame(width: 61, height: 92)
+//                    .frame(width: 61, height: 92)
                 textView
             }
         }
@@ -42,18 +42,21 @@ struct PosterCard: View {
     private var imageView: some View {
         ZStack {
             RectangleView()
+
+            MovieRemoteImage(urlString: movie.posterString)
+                .scaledToFill()
             
-            AsyncImage(url: movie.posterURL) { phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } else if phase.error != nil {
-                    Image(systemName: "video")
-                } else {
-                    ProgressView()
-                }
-            }
+//            AsyncImage(url: movie.posterURL) { phase in
+//                if let image = phase.image {
+//                    image
+//                        .resizable()
+//                        .scaledToFill()
+//                } else if phase.error != nil {
+//                    Image(systemName: "video")
+//                } else {
+//                    ProgressView()
+//                }
+//            }
         }
         .cornerRadius(8)
         .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 5)
@@ -90,10 +93,11 @@ struct PosterCard_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             PosterCard(movie: Movie.localMovie, orientationType: .vertical)
-                .frame(width: 90, height: 150)
+                .frame(width: 204, height: 306)
+                .padding()
             
             PosterCard(movie: Movie.localMovie, orientationType: .horizontal)
-                .frame(width: 200, height: 20)
+                .frame(width: 204, height: 306)
         }
     }
 }
