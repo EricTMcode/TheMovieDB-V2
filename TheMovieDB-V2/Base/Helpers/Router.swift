@@ -44,4 +44,8 @@ class Router: ObservableObject {
     func resetAllFavoritePath() {
         favoritesPath = NavigationPath()
     }
+    
+    func resetAllSearchPath() {
+        searchPath = NavigationPath()
+    }
 }

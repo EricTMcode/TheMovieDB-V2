@@ -59,6 +59,13 @@ struct ContentView: View {
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
+                .onChange(of: tappedTwice) { tappedTwice in
+                    guard tappedTwice else { return }
+                    if tabSelected == 3 {
+                        self.tappedTwice = false
+                        router.resetAllSearchPath()
+                    }
+                }
                 .tag(3)
         }
         .onAppear {
