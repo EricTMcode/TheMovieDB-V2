@@ -18,8 +18,6 @@ struct PosterCard: View {
     
     var body: some View {
         containerView
-        
-//        .frame(width: 90, height: 150)
     }
     
     @ViewBuilder
@@ -27,13 +25,12 @@ struct PosterCard: View {
         if case .vertical = orientationType {
             VStack(alignment: .leading) {
                 imageView
-//                    .frame(width: 105)
                 textView
             }
         } else {
             HStack(alignment: .top, spacing: 16) {
                 imageView
-//                    .frame(width: 61, height: 92)
+                    .frame(width: 60 ,height: 120)
                 textView
             }
         }

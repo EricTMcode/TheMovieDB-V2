@@ -136,7 +136,7 @@ struct PersonDetailView: View {
         VStack(alignment: .leading, spacing: 15) {
             TextDetailTitle(text: "Filmography")
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .top, spacing: 10) {
+                LazyHStack(alignment: .top, spacing: 12) {
                     if let movieCast = person.movieCast {
                         ForEach(movieCast) { movie in
                             NavigationLink(value: movie) {

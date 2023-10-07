@@ -30,11 +30,11 @@ struct PosterCarouselView: View {
             .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .top, spacing: 15) {
+                LazyHStack(alignment: .top, spacing: 12) {
                     ForEach(movies) { movie in
                         NavigationLink(value: movie) {
                             PosterCard(movie: movie)
-//                                .frame(width: 105, height: 175)
+                                .frame(width: 94, height: 176)
                         }
                         .buttonStyle(.plain)
                     }
