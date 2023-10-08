@@ -66,7 +66,7 @@ struct PosterCard: View {
                 Text(movie.title)
                     .font(.caption)
                 
-                Text("☆ \(movie.voteAverage, specifier: "%.1f")")
+                Text("☆ \(movie.voteAverageText)")
                     .foregroundColor(.secondary)
                     .font(.caption.bold())
             }
@@ -76,7 +76,7 @@ struct PosterCard: View {
                 Text(movie.title)
                     .font(.headline)
                 
-                Text("☆ \(movie.voteAverage, specifier: "%.1f") - \(movie.yearText)")
+                Text("☆ \(movie.voteAverageText) - \(movie.yearText)")
                     .foregroundColor(.secondary)
                     .font(.subheadline)
             }

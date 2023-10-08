@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var vm = DetailViewModel()
+    @StateObject var imageLoader = ImageLoader()
     @EnvironmentObject var favorite: Favorite
     @EnvironmentObject var router: Router
     
@@ -41,9 +42,9 @@ struct DetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 if vm.movie != nil {
                     ShareLink("Movie Recommendation",
-                              item: vm.movie!.title,
+                              item: URL(string: "\(Constants.shareMovieURL)\(id)")!,
                               subject: Text("Enjoy the Movie"),
-                              message: Text(vm.movie!.description),
+                              message: Text(vm.movie!.shareDescription),
                               preview: SharePreview(Text("\(vm.movie!.title)")))
                 }
             }

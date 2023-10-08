@@ -90,10 +90,16 @@ struct Movie: Codable, Hashable, Identifiable {
         videos?.results.filter { $0.type.lowercased() == "trailer" }
     }
     
-    var description: String {
+    var voteAverageText: String {
+        return String(format: "%.1f", voteAverage)
+    }
+    
+    var shareDescription: String {
         """
+        Movie Recommendation
         
-        ★ \(voteAverage) - \(durationText) - \(yearText)
+        \(title)
+        ★ \(voteAverageText) - \(durationText) - \(yearText)
         """
     }
 }

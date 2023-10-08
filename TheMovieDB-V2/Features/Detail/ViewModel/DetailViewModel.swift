@@ -5,7 +5,7 @@
 //  Created by Eric on 29/07/2023.
 //
 
-import Foundation
+import SwiftUI
 
 class DetailViewModel: ObservableObject {
     @Published private(set) var movie: Movie?
