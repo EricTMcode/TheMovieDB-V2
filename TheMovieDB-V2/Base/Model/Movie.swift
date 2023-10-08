@@ -93,7 +93,7 @@ struct Movie: Codable, Hashable, Identifiable {
     var video: [MovieVideo]? {
         videos?.results.filter { $0.type.lowercased() == "trailer" }
     }
-    
+   
     var shareDescription: String {
         """
         Movie Recommendation
