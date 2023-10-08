@@ -267,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				0755689B2A7296A600617D64 /* PosterCard.swift */,
+				07DCDF1D2AA20FC100410692 /* PersonView.swift */,
 				075568A02A72985500617D64 /* PosterCarouselView.swift */,
 				075568A42A73EB0300617D64 /* BackdropCard.swift */,
 				075568A62A73EC7300617D64 /* BackdropCarouselView.swift */,
@@ -417,7 +418,6 @@
 		07DCDF162AA20AE800410692 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				07DCDF1D2AA20FC100410692 /* PersonView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";

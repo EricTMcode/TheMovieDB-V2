@@ -57,6 +57,10 @@ struct Movie: Codable, Hashable, Identifiable {
         return URL(string: "\(Constants.imgOriginalUrl)\(backdropPath ?? "")")!
     }
     
+    var voteAverageText: String {
+        return String(format: "%.1f", voteAverage)
+    }
+    
     var genreText: String {
         guard let genres = genres else {
             return "n/a"
@@ -88,10 +92,6 @@ struct Movie: Codable, Hashable, Identifiable {
     
     var video: [MovieVideo]? {
         videos?.results.filter { $0.type.lowercased() == "trailer" }
-    }
-    
-    var voteAverageText: String {
-        return String(format: "%.1f", voteAverage)
     }
     
     var shareDescription: String {
