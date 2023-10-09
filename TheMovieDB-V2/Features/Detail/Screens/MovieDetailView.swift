@@ -142,7 +142,7 @@ struct MovieDetailView: View {
                         LazyHStack(alignment: .top, spacing: 12) {
                             ForEach(movie.recommendationsVideo!) { movie in
                                 NavigationLink(value: movie) {
-                                    PosterCard(movie: movie)
+                                    PosterCard(content: movie)
                                         .frame(width: 110, height: 200)
                                 }
                                 .buttonStyle(.plain)

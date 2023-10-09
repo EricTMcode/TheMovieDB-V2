@@ -12,8 +12,16 @@ enum PosterCardOrientationType {
     case horizontal
 }
 
-struct PosterCard: View {
-    let movie: Movie
+protocol MovieProtocol {
+    var posterString: String { get }
+    var title: String { get }
+    var voteAverageText: String { get }
+    var yearText: String { get }
+}
+
+
+struct PosterCard<T: MovieProtocol>: View {
+    let content: T
     var orientationType: PosterCardOrientationType = .vertical
     
     var body: some View {
@@ -40,7 +48,7 @@ struct PosterCard: View {
         ZStack {
             RectangleView()
 
-            MovieRemoteImage(urlString: movie.posterString)
+            MovieRemoteImage(urlString: content.posterString)
                 .scaledToFill()
             
 //            AsyncImage(url: movie.posterURL) { phase in
@@ -63,20 +71,20 @@ struct PosterCard: View {
     private var textView: some View {
         if case .vertical = orientationType {
             VStack(alignment: .leading) {
-                Text(movie.title)
+                Text(content.title)
                     .font(.caption)
                 
-                Text("☆ \(movie.voteAverageText)")
+                Text("☆ \(content.voteAverageText)")
                     .foregroundColor(.secondary)
                     .font(.caption.bold())
             }
             .lineLimit(1)
         } else {
             VStack(alignment: .leading) {
-                Text(movie.title)
+                Text(content.title)
                     .font(.headline)
                 
-                Text("☆ \(movie.voteAverageText) - \(movie.yearText)")
+                Text("☆ \(content.voteAverageText) - \(content.yearText)")
                     .foregroundColor(.secondary)
                     .font(.subheadline)
             }
@@ -89,11 +97,11 @@ struct PosterCard: View {
 struct PosterCard_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PosterCard(movie: Movie.localMovie, orientationType: .vertical)
+            PosterCard(content: Movie.localMovie, orientationType: .vertical)
                 .frame(width: 204, height: 306)
                 .padding()
             
-            PosterCard(movie: Movie.localMovie, orientationType: .horizontal)
+            PosterCard(content: Movie.localMovie, orientationType: .horizontal)
                 .frame(width: 204, height: 306)
         }
     }

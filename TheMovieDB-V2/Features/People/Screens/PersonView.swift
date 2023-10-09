@@ -140,7 +140,7 @@ struct PersonDetailView: View {
                     if let movieCast = person.movieCast {
                         ForEach(movieCast) { movie in
                             NavigationLink(value: movie) {
-                                PosterCard(movie: movie)
+                                PosterCard(content: movie)
                                     .frame(width: 110, height: 200)
                             }
                             .buttonStyle(.plain)

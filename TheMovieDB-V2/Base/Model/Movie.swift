@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Movie: Codable, Hashable, Identifiable {
+struct Movie: Codable, Hashable, Identifiable, MovieProtocol {
     let id: Int
     let title: String
     let overview: String

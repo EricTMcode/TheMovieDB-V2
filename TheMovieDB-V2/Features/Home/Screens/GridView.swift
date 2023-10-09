@@ -59,7 +59,7 @@ private extension GridView {
             LazyVGrid(columns: vm.gridLayout, spacing: 30) {
                 ForEach(movies) { movie in
                     NavigationLink(value: movie) {
-                        PosterCard(movie: movie)
+                        PosterCard(content: movie)
                     }
                     .buttonStyle(.plain)
                 }
@@ -72,7 +72,7 @@ private extension GridView {
         List {
             ForEach(movies) { movie in
                 NavigationLink(value: movie) {
-                    PosterCard(movie: movie, orientationType: .horizontal)
+                    PosterCard(content: movie, orientationType: .horizontal)
                 }
                 .buttonStyle(.plain)
             }

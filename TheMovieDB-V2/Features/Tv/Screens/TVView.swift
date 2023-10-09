@@ -13,9 +13,12 @@ struct TVView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                ForEach(vm.popular) { show in
-                    Text(show.title)
+            ScrollView {
+                VStack {
+                    ForEach(vm.popular) { show in
+                            PosterCard(content: show)
+                                .frame(width: 100, height: 200)
+                    }
                 }
             }
             .task {

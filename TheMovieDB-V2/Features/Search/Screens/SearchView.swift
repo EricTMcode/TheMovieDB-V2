@@ -17,7 +17,7 @@ struct SearchView: View {
                 if vm.movies != nil {
                     ForEach(vm.movies!) { movie in
                         NavigationLink(value: movie) {
-                            PosterCard(movie: movie, orientationType: .horizontal)
+                            PosterCard(content: movie, orientationType: .horizontal)
                         }
                     }
                 }

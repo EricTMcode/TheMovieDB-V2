@@ -56,7 +56,7 @@ private extension FavoriteView {
             List {
                 ForEach(filteredMovies) { movie in
                     NavigationLink(value: movie) {
-                        PosterCard(movie: movie, orientationType: .horizontal)
+                        PosterCard(content: movie, orientationType: .horizontal)
                     }
                     .swipeActions {
                         Button(role: .destructive) {
