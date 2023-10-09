@@ -16,9 +16,9 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 10) {
                     BackdropCarouselView(movies: vm.nowPlaying)
-                    PosterCarouselView(title: "Movie of the day", movies: vm.nowPlaying)
-                    PosterCarouselView(title: "Recently Added", movies: vm.upcoming)
-                    PosterCarouselView(title: "Top Rated Movie", movies: vm.topRated)
+                    PosterCarouselView<Movie>(title: "Movie of the day", content: vm.nowPlaying)
+                    PosterCarouselView<Movie>(title: "Recently Added", content: vm.upcoming)
+                    PosterCarouselView<Movie>(title: "Top Rated Movie", content: vm.topRated)
                 }
             }
             .refreshable {
@@ -26,7 +26,7 @@ struct HomeView: View {
                     await vm.populateMovies()
                 }
             }
-//            .padding(.vertical)
+            .padding(.vertical)
             .navigationTitle("Welcome")
             .task {
                 if !vm.hasAppeared {

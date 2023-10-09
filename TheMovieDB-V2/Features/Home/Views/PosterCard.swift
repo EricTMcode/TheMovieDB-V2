@@ -12,7 +12,8 @@ enum PosterCardOrientationType {
     case horizontal
 }
 
-protocol MovieProtocol {
+protocol MovieProtocol: Identifiable, Hashable {
+    var id: Int { get }
     var posterString: String { get }
     var title: String { get }
     var voteAverageText: String { get }

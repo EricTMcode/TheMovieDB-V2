@@ -15,10 +15,7 @@ struct TVView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    ForEach(vm.popular) { show in
-                            PosterCard(content: show)
-                                .frame(width: 100, height: 200)
-                    }
+                    PosterCarouselView<Tv>(title: "TV Show", content: vm.popular)
                 }
             }
             .task {

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct PosterCarouselView: View {
+struct PosterCarouselView<T: MovieProtocol>: View {
     let title: String
-    let movies: [Movie]
+    let content: [T]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -20,7 +20,7 @@ struct PosterCarouselView: View {
                 
                 Spacer()
                 
-                NavigationLink(value: movies) {
+                NavigationLink(value: content) {
                     Text("Show all")
                         .font(.callout)
                         .fontWeight(.regular)
@@ -31,7 +31,7 @@ struct PosterCarouselView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(alignment: .top, spacing: 12) {
-                    ForEach(movies) { movie in
+                    ForEach(content) { movie in
                         NavigationLink(value: movie) {
                             PosterCard(content: movie)
                                 .frame(width: 94, height: 176)
@@ -48,7 +48,7 @@ struct PosterCarouselView: View {
 struct PosterCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            PosterCarouselView(title: "Movie of the day", movies: Movie.localMovies)
+            PosterCarouselView<Movie>(title: "Movie of the day", content: Movie.localMovies)
         }
     }
 }
