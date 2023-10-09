@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tv: Codable, Hashable, Identifiable, MovieProtocol {
+struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
     let id: Int
     let title: String
     let overview: String
@@ -25,6 +25,10 @@ struct Tv: Codable, Hashable, Identifiable, MovieProtocol {
     
     var posterString: String {
         return "\(Constants.imgUrl)\(posterPath ?? "")"
+    }
+    
+    var backdropURL: URL {
+        return URL(string: "\(Constants.imgUrl)\(backdropPath ?? "")")!
     }
     
     var voteAverageText: String {

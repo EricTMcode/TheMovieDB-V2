@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct BackdropCard: View {
-    let movie: Movie
+struct BackdropCard<T: MediaProtocol>: View {
+    let content: T
     
     var body: some View {
         VStack(alignment: .leading) {
             ZStack {
                 RectangleView()
                 
-                AsyncImage(url: movie.backdropURL) { phase in
+                AsyncImage(url: content.backdropURL) { phase in
                     if let image = phase.image {
                         image.resizable()
                             .scaledToFit()
@@ -38,7 +38,7 @@ struct BackdropCard: View {
             .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 5)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text(movie.title)
+                Text(content.title)
                     .font(.subheadline)
                     .lineLimit(1)
                 
@@ -53,7 +53,7 @@ struct BackdropCard: View {
 
 struct BackdropCard_Previews: PreviewProvider {
     static var previews: some View {
-        BackdropCard(movie: Movie.localMovie)
+        BackdropCard(content: Movie.localMovie)
             .padding()
     }
 }

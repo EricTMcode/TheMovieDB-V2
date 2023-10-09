@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct BackdropCarouselView: View {
-    let movies: [Movie]
+struct BackdropCarouselView<T: MediaProtocol>: View {
+    let content: [T]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .top, spacing: 20) {
-                ForEach(movies.shuffled()) { movie in
+                ForEach(content.shuffled()) { movie in
                     NavigationLink(value: movie) {
-                        BackdropCard(movie: movie)
+                        BackdropCard(content: movie)
                             .frame(width: 332)
                     }
                     .buttonStyle(.plain)
@@ -28,6 +28,6 @@ struct BackdropCarouselView: View {
 
 struct BackdropCarouselView_Previews: PreviewProvider {
     static var previews: some View {
-        BackdropCarouselView(movies: Movie.localMovies)
+        BackdropCarouselView(content: Movie.localMovies)
     }
 }

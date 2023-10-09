@@ -15,7 +15,8 @@ struct HomeView: View {
         NavigationStack(path: $router.moviePath) {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 10) {
-                    BackdropCarouselView(movies: vm.nowPlaying)
+                    BackdropCarouselView<Movie>(content: vm.nowPlaying)
+                        .padding(.bottom, 10)
                     PosterCarouselView<Movie>(title: "Movie of the day", content: vm.nowPlaying)
                     PosterCarouselView<Movie>(title: "Recently Added", content: vm.upcoming)
                     PosterCarouselView<Movie>(title: "Top Rated Movie", content: vm.topRated)

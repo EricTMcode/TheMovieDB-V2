@@ -9,6 +9,9 @@ import Foundation
 
 final class TVViewModel: ObservableObject {
     @Published private(set) var popular: [Tv] = []
+    @Published private(set) var airingToday: [Tv] = []
+    @Published private(set) var tvTopRated: [Tv] = []
+    @Published private(set) var onTheAir: [Tv] = []
     
     @Published private(set) var error: NetworkingManager.NetworkingError?
     @Published private(set) var viewState: ViewState?
@@ -35,6 +38,12 @@ final class TVViewModel: ObservableObject {
             switch endpoint {
             case .tvPopular(page: page):
                 self.popular = response.results
+            case .airingToday(page: page):
+                self.airingToday = response.results
+            case .tvTopRated(page: page):
+                self.tvTopRated = response.results
+            case .onTheAir(page: page):
+                self.onTheAir = response.results
             default:
                 break
             }
@@ -46,6 +55,13 @@ final class TVViewModel: ObservableObject {
                 self.error = .custom(error: error)
             }
         }
+    }
+    
+    func populateTV() async {
+        await fetchTV(from: .tvPopular(page: page))
+        await fetchTV(from: .airingToday(page: page))
+        await fetchTV(from: .tvTopRated(page: page))
+        await fetchTV(from: .onTheAir(page: page))
     }
 }
 

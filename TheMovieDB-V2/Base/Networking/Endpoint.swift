@@ -15,6 +15,9 @@ enum Endpoint {
     case person(id: Int)
     case search(query: String)
     case tvPopular(page: Int)
+    case airingToday(page: Int)
+    case tvTopRated(page: Int)
+    case onTheAir(page: Int)
 }
 
 extension Endpoint {
@@ -29,11 +32,11 @@ extension Endpoint {
     
     var path: String {
         switch self {
-        case .nowPlaying :
+        case .nowPlaying:
             return "/3/movie/now_playing"
-        case .upcoming :
+        case .upcoming:
             return "/3/movie/upcoming"
-        case .topRated :
+        case .topRated:
             return "/3/movie/top_rated"
         case .detail(let id):
             return "/3/movie/\(id)"
@@ -41,14 +44,20 @@ extension Endpoint {
             return "/3/person/\(id)"
         case .search:
             return "/3/search/movie"
-        case .tvPopular :
+        case .tvPopular:
             return "/3/tv/popular"
+        case .airingToday:
+            return "/3/tv/airing_today"
+        case .tvTopRated:
+            return "/3/tv/top_rated"
+        case .onTheAir:
+            return "/3/tv/on_the_air"
         }
     }
     
     var methodType: MethodType {
         switch self {
-        case .nowPlaying, .upcoming, .topRated, .detail, .person, .search, .tvPopular:
+        case .nowPlaying, .upcoming, .topRated, .detail, .person, .search, .tvPopular, .airingToday, .tvTopRated, .onTheAir:
             return .GET
         }
     }
@@ -68,6 +77,12 @@ extension Endpoint {
         case .search(let query):
             return ["query": query]
         case .tvPopular(let page):
+            return ["page": "\(page)"]
+        case .airingToday(let page):
+            return ["page": "\(page)"]
+        case .tvTopRated(let page):
+            return ["page": "\(page)"]
+        case .onTheAir(let page):
             return ["page": "\(page)"]
         }
     }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PosterCarouselView<T: MovieProtocol>: View {
+struct PosterCarouselView<T: MediaProtocol>: View {
     let title: String
     let content: [T]
     
