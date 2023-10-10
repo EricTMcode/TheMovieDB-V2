@@ -30,10 +30,10 @@ struct HomeView: View {
             .padding(.vertical)
             .navigationTitle("Welcome")
             .task {
-                if !vm.hasAppeared {
+//                if !vm.hasAppeared {
                     await vm.populateMovies()
-                    vm.hasAppeared = true
-                }
+//                    vm.hasAppeared = true
+//                }
             }
             .overlay {
                 if vm.isLoading {

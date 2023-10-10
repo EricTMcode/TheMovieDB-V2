@@ -9,11 +9,20 @@ import SwiftUI
 
 struct SettingsView: View {
     @AppStorage("interfaceTheme") private var interfaceTheme: InterfaceTheme = .auto
+    @AppStorage("language") private var language: Language = .en
     @EnvironmentObject var router: Router
     
     var body: some View {
             Form {
                 Section {
+                    Picker("Language", selection: $language) {
+                        ForEach(Language.allCases, id: \.self) { lang in
+                            Text(lang.rawValue)
+                                .onTapGesture {
+                                    Endpoint.selectedLanguage = lang
+                                }
+                        }
+                    }
                     Picker("Theme", selection: $interfaceTheme) {
                         ForEach(InterfaceTheme.allCases, id: \.self) { theme in
                             Text(theme.name).tag(theme)

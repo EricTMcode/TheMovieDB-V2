@@ -21,6 +21,22 @@ enum Endpoint {
 }
 
 extension Endpoint {
+    static var selectedLanguage: Language {
+        get {
+            if let storedLanguage = UserDefaults.standard.string(forKey: "language"),
+               let language = Language(rawValue: storedLanguage) {
+                return language
+            }
+            return .en
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: "language")
+        }
+    }
+}
+
+extension Endpoint {
     enum MethodType {
         case GET
         case POST(data: Data?)
@@ -89,6 +105,7 @@ extension Endpoint {
 }
 
 extension Endpoint {
+    
     var url: URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -96,7 +113,7 @@ extension Endpoint {
         urlComponents.path = path
         
         let staticQueryItems = [URLQueryItem(name: "api_key", value: Constants.apiKey),
-                                URLQueryItem(name: "language", value: Constants.language)]
+                                URLQueryItem(name: "language", value: Endpoint.selectedLanguage.rawValue)]
         
         let requestQueryItems = queryItems.compactMap { item in
             URLQueryItem(name: item.key, value: item.value)

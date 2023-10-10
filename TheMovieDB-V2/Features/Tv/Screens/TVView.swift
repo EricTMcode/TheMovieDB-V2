@@ -72,5 +72,6 @@ struct TVView: View {
 struct TVView_Previews: PreviewProvider {
     static var previews: some View {
         TVView()
+            .environmentObject(Router())
     }
 }
