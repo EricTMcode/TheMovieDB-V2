@@ -12,6 +12,7 @@ struct SettingsView: View {
     @AppStorage("language") private var language: Language = .en
     @EnvironmentObject var router: Router
     
+    
     var body: some View {
             Form {
                 Section {
