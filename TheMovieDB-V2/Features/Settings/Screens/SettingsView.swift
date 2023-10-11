@@ -11,6 +11,7 @@ struct SettingsView: View {
     @AppStorage("interfaceTheme") private var interfaceTheme: InterfaceTheme = .auto
     @AppStorage("language") private var language: Language = .en
     @EnvironmentObject var router: Router
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     
     var body: some View {
@@ -54,6 +55,9 @@ struct SettingsView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         router.resetAllPath()
+                        Task {
+                            await homeViewModel.populateMovies()
+                        }
                     } label: {
                         returnButtonView()
                     }
@@ -67,5 +71,6 @@ struct SettingsView: View {
         SettingsView()
             .preferredColorScheme(.dark)
             .environmentObject(Router())
+            .environmentObject(HomeViewModel())
     }
 }

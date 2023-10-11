@@ -79,6 +79,7 @@ struct HomeView: View {
                 SettingsView()
             }
         }
+        .environmentObject(vm)
     }
 }
 
