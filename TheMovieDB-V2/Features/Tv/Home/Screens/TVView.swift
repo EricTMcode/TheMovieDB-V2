@@ -17,8 +17,8 @@ struct TVView: View {
                 VStack {
                     BackdropCarouselView<Tv>(content: vm.airingToday)
                         .padding(.bottom, 10)
-                    PosterCarouselView<Tv>(title: "On The Air", content: vm.onTheAir)
                     PosterCarouselView<Tv>(title: "Top Rated", content: vm.tvTopRated)
+                    PosterCarouselView<Tv>(title: "On The Air", content: vm.onTheAir)
                     PosterCarouselView<Tv>(title: "Popular", content: vm.popular)
 
                 }
@@ -55,12 +55,15 @@ struct TVView: View {
                         Image(systemName: "arrow.counterclockwise")
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(value: "SettingsView") {
-                        Image(systemName: "gear")
-                            .foregroundStyle(.orange)
-                    }
-                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    NavigationLink(value: "SettingsView") {
+//                        Image(systemName: "gear")
+//                            .foregroundStyle(.orange)
+//                    }
+//                }
+            }
+            .navigationDestination(for: Tv.self) { tv in
+                TVDetailView(id: tv.id)
             }
             .navigationDestination(for: String.self) { i in
                 SettingsView()

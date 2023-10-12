@@ -18,6 +18,7 @@ enum Endpoint {
     case airingToday(page: Int)
     case tvTopRated(page: Int)
     case onTheAir(page: Int)
+    case tvDetail(id: Int)
 }
 
 extension Endpoint {
@@ -68,12 +69,14 @@ extension Endpoint {
             return "/3/tv/top_rated"
         case .onTheAir:
             return "/3/tv/on_the_air"
+        case .tvDetail(let id):
+            return "/3/tv/\(id)"
         }
     }
     
     var methodType: MethodType {
         switch self {
-        case .nowPlaying, .upcoming, .topRated, .detail, .person, .search, .tvPopular, .airingToday, .tvTopRated, .onTheAir:
+        case .nowPlaying, .upcoming, .topRated, .detail, .person, .search, .tvPopular, .airingToday, .tvTopRated, .onTheAir, .tvDetail:
             return .GET
         }
     }
@@ -100,6 +103,8 @@ extension Endpoint {
             return ["page": "\(page)"]
         case .onTheAir(let page):
             return ["page": "\(page)"]
+        case .tvDetail:
+            return ["append_to_response": "videos,credits,recommendations"]
         }
     }
 }

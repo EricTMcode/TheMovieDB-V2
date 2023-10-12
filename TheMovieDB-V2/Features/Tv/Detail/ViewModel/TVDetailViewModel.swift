@@ -1,24 +1,24 @@
 //
-//  DetailViewModel.swift
+//  TVDetailViewModel.swift
 //  TheMovieDB-V2
 //
-//  Created by Eric on 29/07/2023.
+//  Created by Eric on 12/10/2023.
 //
 
-import SwiftUI
+import Foundation
 
-final class DetailViewModel: ObservableObject {
-    @Published private(set) var movie: Movie?
+final class TVDetailViewModel: ObservableObject {
+    @Published private(set) var tv: TvDetail?
     @Published private(set) var error: NetworkingManager.NetworkingError?
     @Published private(set) var viewState: ViewState?
     @Published var hasError = false
     
     @MainActor
-    func fetchDetails(for id: Int) async {
+    func fetchTvDetails(for id: Int) async {
         viewState = .loading
         defer { viewState = .finished }
         do {
-            self.movie = try await NetworkingManager.shared.request(.detail(id: id), type: nil)
+            self.tv = try await NetworkingManager.shared.request(.tvDetail(id: id), type: nil)
         } catch {
             self.hasError = true
             if let networkingError = error as? NetworkingManager.NetworkingError {
@@ -30,7 +30,7 @@ final class DetailViewModel: ObservableObject {
     }
 }
 
-extension DetailViewModel {
+extension TVDetailViewModel {
     enum ViewState {
         case fetching
         case loading

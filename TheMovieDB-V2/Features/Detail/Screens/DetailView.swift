@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject private var vm = DetailViewModel()
-    @StateObject var imageLoader = ImageLoader()
     @EnvironmentObject var favorite: Favorite
     @EnvironmentObject var router: Router
     

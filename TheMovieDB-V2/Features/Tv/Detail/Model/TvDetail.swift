@@ -1,13 +1,13 @@
 //
-//  Tv .swift
+//  TvDetail.swift
 //  TheMovieDB-V2
 //
-//  Created by Eric on 08/10/2023.
+//  Created by Eric on 12/10/2023.
 //
 
 import Foundation
 
-struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
+struct TvDetail: Codable, Hashable, Identifiable {
     let id: Int
     let title: String
     let overview: String
@@ -29,6 +29,10 @@ struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
     
     var backdropURL: URL {
         return URL(string: "\(Constants.imgUrl)\(backdropPath ?? "")")!
+    }
+    
+    var backdropOriginalURL: URL {
+        return URL(string: "\(Constants.imgOriginalUrl)\(backdropPath ?? "")")!
     }
     
     var voteAverageText: String {

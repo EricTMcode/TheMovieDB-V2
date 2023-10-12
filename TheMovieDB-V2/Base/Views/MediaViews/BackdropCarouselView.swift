@@ -13,7 +13,7 @@ struct BackdropCarouselView<T: MediaProtocol>: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .top, spacing: 20) {
-                ForEach(content.shuffled()) { movie in
+                ForEach(content) { movie in
                     NavigationLink(value: movie) {
                         BackdropCard(content: movie)
                             .frame(width: 332)
