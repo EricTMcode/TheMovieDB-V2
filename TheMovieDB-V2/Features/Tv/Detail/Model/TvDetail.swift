@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TvDetail: Codable, Hashable, Identifiable {
+struct TvDetail: Codable, Hashable, Identifiable, MediaProtocol {
     let id: Int
     let title: String
     let overview: String

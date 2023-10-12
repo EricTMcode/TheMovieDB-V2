@@ -19,6 +19,7 @@ protocol MediaProtocol: Identifiable, Hashable {
     var voteAverageText: String { get }
     var yearText: String { get }
     var backdropURL: URL { get }
+    var backdropOriginalURL: URL { get }
 }
 
 

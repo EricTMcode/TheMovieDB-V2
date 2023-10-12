@@ -28,6 +28,10 @@ struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
         return URL(string: "\(Constants.imgUrl)\(backdropPath ?? "")")!
     }
     
+    var backdropOriginalURL: URL {
+        return URL(string: "\(Constants.imgOriginalUrl)\(backdropPath ?? "")")!
+    }
+    
     var voteAverageText: String {
         return String(format: "%.1f", voteAverage)
     }
