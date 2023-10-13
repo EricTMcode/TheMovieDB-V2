@@ -14,9 +14,10 @@ struct TVDetailView: View {
     let id: Int
     
     var body: some View {
-        VStack {
+        VStack(spacing: -40) {
             if vm.tv != nil {
-                TvDetailModelView(tv: vm.tv!)
+                //                TvDetailModelView(tv: vm.tv!)
+                    HeaderView(content: vm.tv!)
             }
         }
         .navigationBarBackButtonHidden()
@@ -31,7 +32,7 @@ struct TVDetailView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    router.resetAllPath()
+                    router.resetTVPath()
                 } label: {
                     returnButtonView()
                 }

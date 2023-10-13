@@ -10,12 +10,13 @@ import Foundation
 struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
     let id: Int
     let title: String
+    let overview: String
     let posterPath: String?
     let backdropPath: String?
     let voteAverage: Double
     
     enum CodingKeys: String, CodingKey {
-        case id, posterPath, voteAverage, backdropPath
+        case id, overview, posterPath, voteAverage, backdropPath
         case title = "name"
         
     }

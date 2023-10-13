@@ -20,6 +20,7 @@ protocol MediaProtocol: Identifiable, Hashable {
     var yearText: String { get }
     var backdropURL: URL { get }
     var backdropOriginalURL: URL { get }
+    var overview: String { get }
 }
 
 

@@ -23,11 +23,17 @@ struct HeaderView<T: MediaProtocol>: View {
                             .foregroundStyle(.black.opacity(0.5))
                             .frame(width: geo.size.width, height: 80)
                         
-                        TvDetailTitleView
+                        DetailTitleView
                     }
                     .offset(x: 0, y: GeometryHelper.getOffsetForHeaderImage(geo))
                 }
                 .frame(height: UIScreen.main.bounds.height * 0.5)
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    DetailContentView(content: content)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 90)
             }
         }
         .ignoresSafeArea()
@@ -49,7 +55,7 @@ struct HeaderView<T: MediaProtocol>: View {
         }
     }
     
-    private var TvDetailTitleView: some View {
+    private var DetailTitleView: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(content.title)
                 .font(.title3)
