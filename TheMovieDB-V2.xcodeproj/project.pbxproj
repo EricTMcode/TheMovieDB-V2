@@ -10,7 +10,6 @@
 		07131A282AB0964800393F14 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07131A272AB0964800393F14 /* Router.swift */; };
 		073058C32AD81E3600394374 /* TvDetailModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073058C22AD81E3600394374 /* TvDetailModelView.swift */; };
 		073058C52AD81E8100394374 /* tv_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 073058C42AD81E8000394374 /* tv_info.json */; };
-		073058C92AD82D4C00394374 /* TvDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073058C82AD82D4C00394374 /* TvDetail.swift */; };
 		073058CC2AD82EB900394374 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073058CB2AD82EB900394374 /* HeaderView.swift */; };
 		073058CE2AD834A400394374 /* DetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073058CD2AD834A400394374 /* DetailContentView.swift */; };
 		0734EAF62AC4637D00F7B503 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0734EAF52AC4637D00F7B503 /* Favorite.swift */; };
@@ -18,6 +17,9 @@
 		0735DD382ACDA2B50075D8DD /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735DD372ACDA2B50075D8DD /* GridViewModel.swift */; };
 		0735DD3A2ACDA6790075D8DD /* returnButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735DD392ACDA6790075D8DD /* returnButtonView.swift */; };
 		0735DD3C2ACDB22C0075D8DD /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735DD3B2ACDB22C0075D8DD /* VideoView.swift */; };
+		0741802F2AD97B8F00D25B8C /* CastDetailDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741802E2AD97B8F00D25B8C /* CastDetailDistributionView.swift */; };
+		074180312AD97ED200D25B8C /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074180302AD97ED200D25B8C /* Credits.swift */; };
+		074180342AD97FE800D25B8C /* MediaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074180332AD97FE800D25B8C /* MediaProtocol.swift */; };
 		07540FE22AA616C900194B3D /* FileManager+Exentsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07540FE12AA616C900194B3D /* FileManager+Exentsion.swift */; };
 		0755686F2A71392500617D64 /* TheMovieDB_V2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0755686E2A71392500617D64 /* TheMovieDB_V2App.swift */; };
 		075568712A71392500617D64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075568702A71392500617D64 /* ContentView.swift */; };
@@ -69,7 +71,6 @@
 		07131A272AB0964800393F14 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		073058C22AD81E3600394374 /* TvDetailModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvDetailModelView.swift; sourceTree = "<group>"; };
 		073058C42AD81E8000394374 /* tv_info.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tv_info.json; sourceTree = "<group>"; };
-		073058C82AD82D4C00394374 /* TvDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvDetail.swift; sourceTree = "<group>"; };
 		073058CB2AD82EB900394374 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		073058CD2AD834A400394374 /* DetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContentView.swift; sourceTree = "<group>"; };
 		0734EAF52AC4637D00F7B503 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -77,6 +78,9 @@
 		0735DD372ACDA2B50075D8DD /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		0735DD392ACDA6790075D8DD /* returnButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = returnButtonView.swift; sourceTree = "<group>"; };
 		0735DD3B2ACDB22C0075D8DD /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		0741802E2AD97B8F00D25B8C /* CastDetailDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDetailDistributionView.swift; sourceTree = "<group>"; };
+		074180302AD97ED200D25B8C /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		074180332AD97FE800D25B8C /* MediaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaProtocol.swift; sourceTree = "<group>"; };
 		07540FE12AA616C900194B3D /* FileManager+Exentsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Exentsion.swift"; sourceTree = "<group>"; };
 		0755686B2A71392500617D64 /* TheMovieDB-V2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheMovieDB-V2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0755686E2A71392500617D64 /* TheMovieDB_V2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDB_V2App.swift; sourceTree = "<group>"; };
@@ -146,21 +150,22 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		073058C72AD82D2600394374 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				073058C82AD82D4C00394374 /* TvDetail.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		073058CA2AD82EAD00394374 /* DetailViews */ = {
 			isa = PBXGroup;
 			children = (
 				073058CB2AD82EB900394374 /* HeaderView.swift */,
 				073058CD2AD834A400394374 /* DetailContentView.swift */,
+				0741802E2AD97B8F00D25B8C /* CastDetailDistributionView.swift */,
 			);
 			path = DetailViews;
+			sourceTree = "<group>";
+		};
+		074180322AD97FCA00D25B8C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				074180332AD97FE800D25B8C /* MediaProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		074B0C2C2AA8AD53006547D6 /* Screens */ = {
@@ -226,6 +231,7 @@
 		0755687D2A713E3600617D64 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				074180322AD97FCA00D25B8C /* Protocols */,
 				0755689D2A7296F900617D64 /* Views */,
 				075568972A72950D00617D64 /* Extensions */,
 				075568882A71453F00617D64 /* Model */,
@@ -263,6 +269,7 @@
 				075568892A71454B00617D64 /* Movie.swift */,
 				0799F5F32AD2E23100A1497D /* Tv.swift */,
 				0734EAF52AC4637D00F7B503 /* Favorite.swift */,
+				074180302AD97ED200D25B8C /* Credits.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,7 +412,6 @@
 		076F60A32AD81A4D00742EF4 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				073058C72AD82D2600394374 /* Model */,
 				076F60A42AD81A6700742EF4 /* Screens */,
 				076F60A52AD81A7100742EF4 /* ViewModel */,
 			);
@@ -601,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				074180342AD97FE800D25B8C /* MediaProtocol.swift in Sources */,
 				07DCDF1A2AA20B4E00410692 /* Person.swift in Sources */,
 				078A91D92AC852F500F39A37 /* SearchViewModel.swift in Sources */,
 				075568AD2A75368300617D64 /* DetailViewModel.swift in Sources */,
@@ -617,6 +624,7 @@
 				075568902A7146A200617D64 /* MovieResponse.swift in Sources */,
 				0755689F2A72970400617D64 /* RectangleView.swift in Sources */,
 				075568712A71392500617D64 /* ContentView.swift in Sources */,
+				0741802F2AD97B8F00D25B8C /* CastDetailDistributionView.swift in Sources */,
 				0735DD3C2ACDB22C0075D8DD /* VideoView.swift in Sources */,
 				073058CE2AD834A400394374 /* DetailContentView.swift in Sources */,
 				075568A72A73EC7300617D64 /* BackdropCarouselView.swift in Sources */,
@@ -641,9 +649,9 @@
 				078A91CD2AC7030E00F39A37 /* NavigationController.swift in Sources */,
 				078A91DB2AC85E1B00F39A37 /* EmptyPlaceHolderView.swift in Sources */,
 				07131A282AB0964800393F14 /* Router.swift in Sources */,
-				073058C92AD82D4C00394374 /* TvDetail.swift in Sources */,
 				075568852A7141C700617D64 /* Endpoint.swift in Sources */,
 				0735DD3A2ACDA6790075D8DD /* returnButtonView.swift in Sources */,
+				074180312AD97ED200D25B8C /* Credits.swift in Sources */,
 				078A91D12AC705C200F39A37 /* SettingsView.swift in Sources */,
 				075568872A7141D800617D64 /* NetworkingManager.swift in Sources */,
 				075568B12A753BAC00617D64 /* GeometryHelper.swift in Sources */,

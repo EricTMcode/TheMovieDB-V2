@@ -23,7 +23,6 @@ struct TVView: View {
 
                 }
             }
-            .padding(.vertical)
             .navigationTitle("TV Shows")
             .task {
                 if !vm.hasAppeared {
@@ -67,6 +66,9 @@ struct TVView: View {
             }
             .navigationDestination(for: String.self) { i in
                 SettingsView()
+            }
+            .navigationDestination(for: Cast.self) { cast in
+                PersonView(id: cast.id)
             }
         }
     }

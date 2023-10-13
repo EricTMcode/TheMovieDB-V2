@@ -22,6 +22,6 @@ struct DetailContentView<T: MediaProtocol>: View {
 }
 
 #Preview {
-    DetailContentView<TvDetail>(content: TvDetail.localTv)
+    DetailContentView<Tv>(content: Tv.localTv)
         .padding(.horizontal)
 }

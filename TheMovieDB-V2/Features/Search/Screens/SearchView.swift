@@ -35,7 +35,7 @@ struct SearchView: View {
             .navigationDestination(for: Movie.self) { movie in
                 DetailView(id: movie.id)
             }
-            .navigationDestination(for: MovieCast.self) { cast in
+            .navigationDestination(for: Cast.self) { cast in
                 PersonView(id: cast.id)
             }
         }

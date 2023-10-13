@@ -40,9 +40,9 @@ extension Movie {
     }
 }
 
-extension TvDetail {
-    static var localTv: TvDetail {
-        let tv: TvDetail = Bundle.main.decode(filename: "tv_info")
+extension Tv {
+    static var localTv: Tv {
+        let tv: Tv = Bundle.main.decode(filename: "tv_info")
         return tv
     }
 }

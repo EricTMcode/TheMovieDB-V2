@@ -31,6 +31,7 @@ struct HeaderView<T: MediaProtocol>: View {
                 
                 VStack(alignment: .leading, spacing: 20) {
                     DetailContentView(content: content)
+                    CastDetailDistributionView(content: content)
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 90)
@@ -67,7 +68,7 @@ struct HeaderView<T: MediaProtocol>: View {
                 .font(.callout)
                 .fontWeight(.medium)
             
-            Text("Action, Thriller, Crime")
+            Text(content.genreText)
                 .font(.footnote)
         }
         .foregroundStyle(.white.opacity(0.7))
@@ -78,5 +79,5 @@ struct HeaderView<T: MediaProtocol>: View {
 }
 
 #Preview {
-    HeaderView<TvDetail>(content: TvDetail.localTv)
+    HeaderView<Tv>(content: Tv.localTv)
 }

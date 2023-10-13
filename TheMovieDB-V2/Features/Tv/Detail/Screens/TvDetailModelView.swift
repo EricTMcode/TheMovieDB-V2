@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TvDetailModelView: View {
-    let tv: TvDetail
+    let tv: Tv
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -71,6 +71,6 @@ struct TvDetailModelView: View {
 }
 
 #Preview {
-    TvDetailModelView(tv: TvDetail.localTv)
+    TvDetailModelView(tv: Tv.localTv)
 }
 

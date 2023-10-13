@@ -27,7 +27,7 @@ struct HomeView: View {
                     await vm.populateMovies()
                 }
             }
-            .padding(.vertical)
+//            .padding(.vertical)
             .navigationTitle("Welcome")
             .task {
                 if !vm.hasAppeared {
@@ -72,7 +72,7 @@ struct HomeView: View {
             .navigationDestination(for: [Movie].self) { movies in
                 GridView(title: "Movies", movies: movies)
             }
-            .navigationDestination(for: MovieCast.self) { cast in
+            .navigationDestination(for: Cast.self) { cast in
                 PersonView(id: cast.id)
             }
             .navigationDestination(for: String.self) { i in

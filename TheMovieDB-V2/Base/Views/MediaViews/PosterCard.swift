@@ -12,18 +12,6 @@ enum PosterCardOrientationType {
     case horizontal
 }
 
-protocol MediaProtocol: Identifiable, Hashable {
-    var id: Int { get }
-    var posterString: String { get }
-    var title: String { get }
-    var voteAverageText: String { get }
-    var yearText: String { get }
-    var backdropURL: URL { get }
-    var backdropOriginalURL: URL { get }
-    var overview: String { get }
-}
-
-
 struct PosterCard<T: MediaProtocol>: View {
     let content: T
     var orientationType: PosterCardOrientationType = .vertical

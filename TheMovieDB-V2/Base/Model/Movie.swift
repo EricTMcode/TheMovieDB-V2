@@ -18,7 +18,7 @@ struct Movie: Codable, Hashable, Identifiable, MediaProtocol {
     let voteCount: Int
     let runtime: Int?
     let genres: [MovieGenre]?
-    let credits: MovieCredit?
+    let credits: Credit?
     let recommendations: MovieRecommendationsResponse?
     let videos: MovieVideoResponse?
     
@@ -82,7 +82,7 @@ struct Movie: Codable, Hashable, Identifiable, MediaProtocol {
         return Movie.yearFormatter.string(from: date)
     }
     
-    var cast: [MovieCast]? {
+    var cast: [Cast]? {
         credits?.cast
     }
     
@@ -109,20 +109,20 @@ struct MovieGenre: Codable, Hashable, Identifiable {
     let name: String
 }
 
-struct MovieCredit: Codable, Hashable {
-    let cast: [MovieCast]
-}
-
-struct MovieCast: Codable, Hashable, Identifiable {
-    let id: Int
-    let character: String
-    let name: String
-    let profilePath: String?
-    
-    var profileURL: URL {
-        return URL(string: "\(Constants.imgUrl)\(profilePath ?? "")")!
-    }
-}
+//struct MovieCredit: Codable, Hashable {
+//    let cast: [MovieCast]
+//}
+//
+//struct MovieCast: Codable, Hashable, Identifiable {
+//    let id: Int
+//    let character: String
+//    let name: String
+//    let profilePath: String?
+//    
+//    var profileURL: URL {
+//        return URL(string: "\(Constants.imgUrl)\(profilePath ?? "")")!
+//    }
+//}
 
 struct MovieRecommendationsResponse: Codable, Hashable {
     let results: [Movie]

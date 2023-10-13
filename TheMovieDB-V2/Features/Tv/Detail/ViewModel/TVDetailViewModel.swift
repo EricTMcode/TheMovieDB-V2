@@ -8,7 +8,7 @@
 import Foundation
 
 final class TVDetailViewModel: ObservableObject {
-    @Published private(set) var tv: TvDetail?
+    @Published private(set) var tv: Tv?
     @Published private(set) var error: NetworkingManager.NetworkingError?
     @Published private(set) var viewState: ViewState?
     @Published var hasError = false
