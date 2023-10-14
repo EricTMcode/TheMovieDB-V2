@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeaderView<T: MediaProtocol>: View {
+struct ContentDetailView<T: MediaProtocol>: View {
     
     let content: T
     
@@ -30,7 +30,7 @@ struct HeaderView<T: MediaProtocol>: View {
                 .frame(height: UIScreen.main.bounds.height * 0.5)
                 
                 VStack(alignment: .leading, spacing: 20) {
-                    DetailContentView(content: content)
+                    OverviewDetailView(content: content)
                     CastDetailDistributionView(content: content)
                 }
                 .padding(.horizontal)
@@ -64,7 +64,7 @@ struct HeaderView<T: MediaProtocol>: View {
                 .foregroundStyle(.white)
                 .lineLimit(1)
             
-            Text("★ \(content.voteAverageText) - 2011 - Status: In production")
+            Text(content.infoText)
                 .font(.callout)
                 .fontWeight(.medium)
             
@@ -79,5 +79,5 @@ struct HeaderView<T: MediaProtocol>: View {
 }
 
 #Preview {
-    HeaderView<Tv>(content: Tv.localTv)
+    ContentDetailView<Tv>(content: Tv.localTv)
 }

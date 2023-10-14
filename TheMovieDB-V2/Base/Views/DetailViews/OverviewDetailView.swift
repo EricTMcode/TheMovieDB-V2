@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailContentView<T: MediaProtocol>: View {
+struct OverviewDetailView<T: MediaProtocol>: View {
     
     let content: T
     
@@ -22,6 +22,6 @@ struct DetailContentView<T: MediaProtocol>: View {
 }
 
 #Preview {
-    DetailContentView<Tv>(content: Tv.localTv)
+    OverviewDetailView<Tv>(content: Tv.localTv)
         .padding(.horizontal)
 }

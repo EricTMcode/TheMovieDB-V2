@@ -14,7 +14,7 @@ struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
     let posterPath: String?
     let backdropPath: String?
     let voteAverage: Double
-    let genres: [TVGenre]?
+    let genres: [Genres]?
     let credits: Credit?
     
     enum CodingKeys: String, CodingKey {
@@ -50,27 +50,11 @@ struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
         return "2000"
     }
     
+    var infoText: String {
+        return "★ \(voteAverageText) - 2011 - Status: In production"
+    }
+    
     var cast: [Cast]? {
         credits?.cast
     }
 }
-
-struct TVGenre: Codable, Hashable, Identifiable {
-    let id: Int
-    let name: String
-}
-
-//struct TVCredit: Codable, Hashable {
-//    let cast: [TVCast]
-//}
-//
-//struct TVCast: Codable, Hashable, Identifiable {
-//    let id: Int
-//    let character: String
-//    let name: String
-//    let profilePath: String?
-//    
-//    var profileURL: URL {
-//        return URL(string: "\(Constants.imgUrl)\(profilePath ?? "")")!
-//    }
-//}

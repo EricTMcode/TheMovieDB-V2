@@ -18,5 +18,6 @@ protocol MediaProtocol: Identifiable, Hashable {
     var overview: String { get }
     var genreText: String { get }
     var cast: [Cast]? { get }
+    var infoText: String { get }
 }
 

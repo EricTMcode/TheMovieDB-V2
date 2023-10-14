@@ -17,7 +17,8 @@ struct DetailView: View {
     var body: some View {
         VStack {
             if vm.movie != nil {
-                MovieDetailView(movie: vm.movie!)
+//                MovieDetailView(movie: vm.movie!)
+                ContentDetailView(content: vm.movie!)
             }
         }
         .task {

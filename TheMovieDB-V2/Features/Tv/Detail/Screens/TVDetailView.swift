@@ -14,10 +14,10 @@ struct TVDetailView: View {
     let id: Int
     
     var body: some View {
-        VStack(spacing: -40) {
+        VStack {
             if vm.tv != nil {
                 //                TvDetailModelView(tv: vm.tv!)
-                    HeaderView(content: vm.tv!)
+                    ContentDetailView(content: vm.tv!)
             }
         }
         .navigationBarBackButtonHidden()
