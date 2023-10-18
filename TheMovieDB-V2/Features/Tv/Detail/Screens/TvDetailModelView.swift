@@ -31,6 +31,7 @@ struct TvDetailModelView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     TvDetailOverviewView
                     TvDetailDistributionView
+                    TvDetailTrailerView
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 90)
@@ -130,7 +131,18 @@ struct TvDetailModelView: View {
                     }
                 }
             }
-            
+        }
+    }
+    
+    private var TvDetailTrailerView: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            if tv.video != nil {
+                TextDetailTitle(text: "Trailer")
+                ForEach(tv.video!.prefix(1)) { video in
+                    VideoView(key: video.key)
+                        .aspectRatio(16/9,contentMode: .fit)
+                }
+            }
         }
     }
 }

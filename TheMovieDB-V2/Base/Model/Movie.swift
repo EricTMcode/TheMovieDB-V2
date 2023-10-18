@@ -95,7 +95,7 @@ struct Movie: Codable, Hashable, Identifiable, MediaProtocol {
     }
     
     var video: [MovieVideo]? {
-        videos?.results.filter { $0.type.lowercased() == "trailer" }
+        videos?.results.filter { $0.type.lowercased() == "trailer" && $0.official == true }
     }
    
     var shareDescription: String {
@@ -122,4 +122,5 @@ struct MovieVideo: Codable, Identifiable, Hashable {
     let name: String
     let site: String
     let type: String
+    let official: Bool
 }
