@@ -16,8 +16,7 @@ struct TVDetailView: View {
     var body: some View {
         VStack {
             if vm.tv != nil {
-                                TvDetailModelView(tv: vm.tv!)
-//                    ContentDetailView(content: vm.tv!)
+                TvDetailModelView(tv: vm.tv!)
             }
         }
         .navigationBarBackButtonHidden()
