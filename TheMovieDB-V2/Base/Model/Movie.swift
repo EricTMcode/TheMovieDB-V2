@@ -95,7 +95,7 @@ struct Movie: Codable, Hashable, Identifiable, MediaProtocol {
     }
     
     var video: [MovieVideo]? {
-        videos?.results.filter { $0.type.lowercased() == "trailer" && $0.official == true }
+        videos?.results.filter { $0.type.lowercased() == "trailer" }
     }
    
     var shareDescription: String {

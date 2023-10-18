@@ -32,6 +32,7 @@ struct TvDetailModelView: View {
                     TvDetailOverviewView
                     TvDetailDistributionView
                     TvDetailTrailerView
+                    TvDetailRecommendationsView
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 90)
@@ -141,6 +142,25 @@ struct TvDetailModelView: View {
                 ForEach(tv.video!.prefix(1)) { video in
                     VideoView(key: video.key)
                         .aspectRatio(16/9,contentMode: .fit)
+                }
+            }
+        }
+    }
+    
+    private var TvDetailRecommendationsView: some View {
+        VStack(alignment: .leading, spacing: 15) {
+            if tv.recommendationsVideo != nil {
+                TextDetailTitle(text: "Recommendations")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 12) {
+                        ForEach(tv.recommendationsVideo!) { tv in
+                            NavigationLink(value: tv) {
+                                PosterCard(content: tv)
+                                    .frame(width: 110, height: 200)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
                 }
             }
         }

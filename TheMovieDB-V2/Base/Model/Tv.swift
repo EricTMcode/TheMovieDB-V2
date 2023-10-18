@@ -16,10 +16,11 @@ struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
     let voteAverage: Double
     let genres: [Genres]?
     let credits: Credit?
+    let recommendations: TVRecommendationsResponse?
     let videos: TVVideoResponse?
     
     enum CodingKeys: String, CodingKey {
-        case id, overview, posterPath, voteAverage, backdropPath, genres, credits, videos
+        case id, overview, posterPath, voteAverage, backdropPath, genres, credits, videos, recommendations
         case title = "name"
         
     }
@@ -59,9 +60,17 @@ struct Tv: Codable, Hashable, Identifiable, MediaProtocol {
         credits?.cast
     }
     
-    var video: [TVVideo]? {
-        videos?.results.filter { $0.type.lowercased() == "trailer" }
+    var recommendationsVideo: [Tv]? {
+        return (recommendations?.results.isEmpty)! ? nil : recommendations?.results
     }
+    
+    var video: [TVVideo]? {
+        videos?.results.filter { $0.type.lowercased() == "trailer" || $0.type.lowercased() == "official trailer" }
+    }
+}
+
+struct TVRecommendationsResponse: Codable, Hashable {
+    let results: [Tv]
 }
 
 struct TVVideoResponse: Codable, Hashable {
