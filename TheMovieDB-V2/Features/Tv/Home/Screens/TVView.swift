@@ -64,6 +64,9 @@ struct TVView: View {
             .navigationDestination(for: Tv.self) { tv in
                 TVDetailView(id: tv.id)
             }
+            .navigationDestination(for: Movie.self) { movie in
+                DetailView(id: movie.id)
+            }
             .navigationDestination(for: String.self) { i in
                 SettingsView()
             }

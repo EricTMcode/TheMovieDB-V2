@@ -40,6 +40,7 @@ class Router: ObservableObject {
     
     func resetAllPath() {
         resetMoviePath()
+        resetTVPath()
         resetFavoritesPath()
         resetSearchPath()
     }
